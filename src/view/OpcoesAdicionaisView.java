@@ -62,7 +62,7 @@ public class OpcoesAdicionaisView extends JFrame {
 		});
 		btnGerentes.setHorizontalAlignment(SwingConstants.LEFT);
 		btnGerentes.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnGerentes.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/gerente.png")));
+		btnGerentes.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/gerente.png")));
 		btnGerentes.setBounds(156, 202, 415, 82);
 		contentPane.add(btnGerentes);
 		
@@ -74,7 +74,7 @@ public class OpcoesAdicionaisView extends JFrame {
 		});
 		btnFuncionarios.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFuncionarios.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnFuncionarios.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/funcionarios.png")));
+		btnFuncionarios.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/funcionarios.png")));
 		btnFuncionarios.setBounds(156, 401, 415, 82);
 		contentPane.add(btnFuncionarios);
 		
@@ -86,7 +86,7 @@ public class OpcoesAdicionaisView extends JFrame {
 		});		
 		btnEstoque.setHorizontalAlignment(SwingConstants.LEFT);
 		btnEstoque.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnEstoque.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estoque02.png")));
+		btnEstoque.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/estoque02.png")));
 		btnEstoque.setBounds(705, 202, 415, 82);
 		contentPane.add(btnEstoque);
 		
@@ -98,17 +98,17 @@ public class OpcoesAdicionaisView extends JFrame {
 		});
 		btnMudarSenha.setHorizontalAlignment(SwingConstants.LEFT);
 		btnMudarSenha.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnMudarSenha.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/adminSenha.png")));
+		btnMudarSenha.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/adminSenha.png")));
 		btnMudarSenha.setBounds(705, 401, 415, 82);
 		contentPane.add(btnMudarSenha);
 		
 		JLabel fundoEscuro = new JLabel("");
-		fundoEscuro.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoEscuro.png")));
+		fundoEscuro.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/fundoEscuro.png")));
 		fundoEscuro.setBounds(32, 38, 1158, 595);
 		contentPane.add(fundoEscuro);
 		
 		JLabel fundo = new JLabel("");
-		fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoMenu.jpg")));
+		fundo.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/fundoMenu.jpg")));
 		fundo.setBounds(0, 0, 1920, 1080);
 		contentPane.add(fundo);
 		
