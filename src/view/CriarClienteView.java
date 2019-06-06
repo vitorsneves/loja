@@ -7,8 +7,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.ClienteController;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -18,6 +23,40 @@ public class CriarClienteView extends JFrame {
 	private JPanel contentPane;
 	private JTextField textNome;
 	private JTextField textCpf;
+	private ClienteController controller = new ClienteController(this);
+	
+	public JTextField getTextNome() {
+		return textNome;
+	}
+
+	public void setTextNome(JTextField textNome) {
+		this.textNome = textNome;
+	}
+
+	public JTextField getTextCpf() {
+		return textCpf;
+	}
+
+	public void setTextCpf(JTextField textCpf) {
+		this.textCpf = textCpf;
+	}
+
+	public JTextField getTextTelefone() {
+		return textTelefone;
+	}
+
+	public void setTextTelefone(JTextField textTelefone) {
+		this.textTelefone = textTelefone;
+	}
+
+	public JTextField getTextEmail() {
+		return textEmail;
+	}
+
+	public void setTextEmail(JTextField textEmail) {
+		this.textEmail = textEmail;
+	}
+
 	private JTextField textTelefone;
 	private JTextField textEmail;
 
@@ -115,6 +154,12 @@ public class CriarClienteView extends JFrame {
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setBounds(208, 560, 150, 29);
 		contentPane.add(btnConfirmar);
+		btnConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.salvarCliente();
+
+			}
+		});
 		
 		JLabel lblCamposCom = new JLabel("Campos com * s\u00E3o obrigat\u00F3rios.");
 		lblCamposCom.setForeground(Color.WHITE);
