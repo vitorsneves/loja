@@ -26,12 +26,11 @@ public class LoginController {
 		Usuario usuarioAutenticar = new Usuario(usuario,senha);
 		
 		try{
-		MenuPrincipalView frame1 = new MenuPrincipalView();
 		Connection conexao = new ConexaoDao().getConnection();
 		UsuarioDao usuarioDao = new UsuarioDao(conexao);
 		int resultado = usuarioDao.autenticarUsuario(usuarioAutenticar);
 		if(resultado == 1) {
-			frame1.setVisible(true);
+			new MenuPrincipalView().setVisible(true);
 			view.dispose();
 		}
 		else if(resultado == 0) {

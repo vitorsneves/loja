@@ -75,12 +75,17 @@ public class CriarClienteView extends JFrame {
 			}
 		});
 	}
+	
+	private MenuPrincipalView menu;
+	
+	public void setMenuPrincipal(MenuPrincipalView menu) {
+		this.menu = menu;
+		
+	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public CriarClienteView() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(500, 50, 411, 645);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -150,6 +155,14 @@ public class CriarClienteView extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(48, 560, 150, 29);
 		contentPane.add(btnCancelar);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				menu.setEnabled(true);
+				getThis().dispose();
+			
+
+			}
+		});
 		
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setBounds(208, 560, 150, 29);
@@ -178,5 +191,8 @@ public class CriarClienteView extends JFrame {
 		contentPane.add(fundo);
 		
 		setResizable(false);
+	}
+	public CriarClienteView getThis() {
+		return this;
 	}
 }

@@ -35,10 +35,8 @@ public class MenuPrincipalView extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	
+	
 	public MenuPrincipalView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 30, 1280, 700);
@@ -68,8 +66,11 @@ public class MenuPrincipalView extends JFrame {
 		contentPane.add(btnAdicionarCliente);
 		btnAdicionarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CriarClienteView frame = new CriarClienteView();
-				frame.setVisible(true);
+				CriarClienteView clienteView = new CriarClienteView();
+				clienteView.setMenuPrincipal(getThis());
+				clienteView.setVisible(true); 
+				setEnabled(false);
+				
 			}
 		});
 		JButton btnNewButton_1 = new JButton("Procurar em estoque");
@@ -104,5 +105,10 @@ public class MenuPrincipalView extends JFrame {
 		contentPane.add(fundo);
 		
 		setResizable(false);
+		
+	}
+	
+	public MenuPrincipalView getThis() {
+		return this;
 	}
 }
