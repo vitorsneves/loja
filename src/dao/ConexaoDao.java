@@ -10,5 +10,4 @@ public class ConexaoDao {
 		Connection conexao = DriverManager.getConnection(url,"root","admin");
 		return conexao;
 	}
-	//vê aí
 }
