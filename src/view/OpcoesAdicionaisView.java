@@ -53,7 +53,10 @@ public class OpcoesAdicionaisView extends JFrame {
 		menu.setFont(new Font("Arial", Font.BOLD, 60));
 		menu.setBounds(544, 59, 189, 109);
 		contentPane.add(menu);
-		
+		//FNDASKJIGHFIUEHWRAGEWUTGFASWGSAGNJKASDNFLKDNJASGKLASGNM
+		//DAISFBHIJDASHGDASGASGNOIANGJOIPADFSOGIASOIGJ
+		//ASDJGDKJASHFDASHNGKJSNAKJGNKASGNKJSDF
+		//ADGJNDKJASGFKASJGNFKJASNDFDAS
 		//botão "gerentes"
 		JButton btnGerentes = new JButton("Gerentes");
 		btnGerentes.addActionListener(new ActionListener() {
