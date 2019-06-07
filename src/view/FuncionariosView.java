@@ -40,7 +40,7 @@ public class FuncionariosView extends JFrame {
 	 */
 	public FuncionariosView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 646, 365);
+		setBounds(100, 100, 744, 435);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,11 +64,11 @@ public class FuncionariosView extends JFrame {
 				view.setVisible(true);
 			}
 		});
-		btnAdicionar.setBounds(520, 287, 89, 23);
+		btnAdicionar.setBounds(619, 95, 89, 23);
 		contentPane.add(btnAdicionar);
 		
 		JButton btnRemover = new JButton("Remover");
-		btnRemover.setBounds(410, 287, 89, 23);
+		btnRemover.setBounds(607, 129, 111, 32);
 		contentPane.add(btnRemover);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -78,11 +78,11 @@ public class FuncionariosView extends JFrame {
 				getThis().dispose();
 			}
 		});
-		btnVoltar.setBounds(22, 287, 89, 23);
+		btnVoltar.setBounds(619, 43, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(300, 287, 89, 23);
+		btnEditar.setBounds(619, 172, 108, 32);
 		contentPane.add(btnEditar);
 		
 		JTextArea textArea = new JTextArea();
