@@ -19,7 +19,8 @@ import java.awt.event.ActionEvent;
 public class MenuPrincipalView extends JFrame {
 
 	private JPanel contentPane;
-	private int definirUsuario;
+	static private int definirUsuario = 2;
+	JButton BtnOpcoesAdicionais;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -27,6 +28,9 @@ public class MenuPrincipalView extends JFrame {
 				try {
 					MenuPrincipalView frame = new MenuPrincipalView();
 					frame.setVisible(true);
+					if(definirUsuario == 3) {
+						frame.getBtnOpcoesAdicionais().setEnabled(false);
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,74 +47,61 @@ public class MenuPrincipalView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("MENU");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 60));
-		lblNewLabel.setBounds(544, 59, 189, 109);
-		contentPane.add(lblNewLabel);
+		JLabel titulo = new JLabel("MENU");
+		titulo.setForeground(Color.WHITE);
+		titulo.setFont(new Font("Arial", Font.BOLD, 60));
+		titulo.setBounds(544, 59, 189, 109);
+		contentPane.add(titulo);
 		
-		JButton btnNewButton = new JButton("Nova compra");
-		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnNewButton.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/dinheiro.png")));
-		btnNewButton.setBounds(156, 202, 415, 82);
-		contentPane.add(btnNewButton);
+		JButton btnNovaCompra = new JButton("Nova compra");
+		btnNovaCompra.setHorizontalAlignment(SwingConstants.LEFT);
+		btnNovaCompra.setFont(new Font("Arial", Font.PLAIN, 30));
+		btnNovaCompra.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/dinheiro.png")));
+		btnNovaCompra.setBounds(156, 202, 415, 82);
+		contentPane.add(btnNovaCompra);
 		
 		JButton btnAdicionarCliente = new JButton("Adicionar cliente");
 		btnAdicionarCliente.setHorizontalAlignment(SwingConstants.LEFT);
 		btnAdicionarCliente.setFont(new Font("Arial", Font.PLAIN, 30));
 		btnAdicionarCliente.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/cliente.png")));
 		btnAdicionarCliente.setBounds(156, 377, 415, 82);
-		contentPane.add(btnAdicionarCliente);
 		btnAdicionarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CriarClienteView clienteView = new CriarClienteView();
 				clienteView.setMenuPrincipal(getThis());
 				clienteView.setVisible(true); 
 				setEnabled(false);
-				
 			}
 		});
-		JButton btnNewButton_1 = new JButton("Procurar em estoque");
-		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton_1.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnNewButton_1.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estoque.png")));
-		btnNewButton_1.setBounds(156, 552, 415, 82);
-		contentPane.add(btnNewButton_1);
+		contentPane.add(btnAdicionarCliente);
+
+		JButton btnBuscarEstoque = new JButton("Procurar em estoque");
+		btnBuscarEstoque.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBuscarEstoque.setFont(new Font("Arial", Font.PLAIN, 30));
+		btnBuscarEstoque.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estoque.png")));
+		btnBuscarEstoque.setBounds(156, 552, 415, 82);
+		contentPane.add(btnBuscarEstoque);
 		
-		JButton btnNewButton_2 = new JButton("Estat\u00EDsticas");
-		btnNewButton_2.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton_2.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnNewButton_2.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estatisticas.png")));
-		btnNewButton_2.setBounds(705, 202, 415, 82);
-		contentPane.add(btnNewButton_2);
+		JButton btnEstatisticas = new JButton("Estat\u00EDsticas");
+		btnEstatisticas.setHorizontalAlignment(SwingConstants.LEFT);
+		btnEstatisticas.setFont(new Font("Arial", Font.PLAIN, 30));
+		btnEstatisticas.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estatisticas.png")));
+		btnEstatisticas.setBounds(705, 202, 415, 82);
+		contentPane.add(btnEstatisticas);
 		
-		JButton btnNewButton_3 = new JButton("Op\u00E7\u00F5es adicionais");
-		btnNewButton_3.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton_3.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnNewButton_3.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/chave.png")));
-		btnNewButton_3.setBounds(705, 377, 415, 82);
-		contentPane.add(btnNewButton_3);
-		btnNewButton_3.setEnabled(false);
-		JButton btnButton_3 = new JButton("Op\u00E7\u00F5es adicionais");
-		
-		btnButton_3.setHorizontalAlignment(SwingConstants.LEFT);
-		btnButton_3.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnButton_3.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/chave.png")));
-		btnButton_3.setBounds(705, 377, 415, 82);
-		contentPane.add(btnButton_3);
-		if(this.definirUsuario == 3) {
-			btnButton_3.setEnabled(false);
-		}else {
-			btnButton_3.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					getThis().dispose();
-					OpcoesAdicionaisView opav = new OpcoesAdicionaisView();
-					opav.setVisible(true);
-				}
-			});
-			
-		}
+		BtnOpcoesAdicionais = new JButton("Op\u00E7\u00F5es adicionais");
+		BtnOpcoesAdicionais.setHorizontalAlignment(SwingConstants.LEFT);
+		BtnOpcoesAdicionais.setFont(new Font("Arial", Font.PLAIN, 30));
+		BtnOpcoesAdicionais.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/chave.png")));
+		BtnOpcoesAdicionais.setBounds(705, 377, 415, 82);
+		contentPane.add(BtnOpcoesAdicionais);
+		BtnOpcoesAdicionais.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getThis().dispose();
+				OpcoesAdicionaisView opav = new OpcoesAdicionaisView();
+				opav.setVisible(true);
+			}
+		});
 		
 		JLabel fundoEscuro = new JLabel("");
 		fundoEscuro.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoEscuro.png")));
@@ -125,11 +116,6 @@ public class MenuPrincipalView extends JFrame {
 		setResizable(false);
 		
 	}
-	
-	public MenuPrincipalView getThis() {
-		return this;
-	}
-
 
 	public int getDefinirUsuario() {
 		return definirUsuario;
@@ -138,5 +124,13 @@ public class MenuPrincipalView extends JFrame {
 
 	public void setDefinirUsuario(int definirUsuario) {
 		this.definirUsuario = definirUsuario;
+	}
+	
+	public JButton getBtnOpcoesAdicionais() {
+		return BtnOpcoesAdicionais;
+	}
+	
+	public MenuPrincipalView getThis() {
+		return this;
 	}
 }

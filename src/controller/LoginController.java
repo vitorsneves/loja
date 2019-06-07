@@ -32,16 +32,15 @@ public class LoginController {
 			MenuPrincipalView menu = new MenuPrincipalView();
 			if(resultado == 1) {
 				menu.setDefinirUsuario(1);
-				menu.setVisible(true);
 			}
 			else if(resultado == 2) {
 				menu.setDefinirUsuario(2);
-				menu.setVisible(true);
 			}
 			else if(resultado == 3) {
 				menu.setDefinirUsuario(3);
-				menu.setVisible(true);
 			}
+			menu.setVisible(true);
+			view.dispose(); //verificar
 		}
 		
 		else {
