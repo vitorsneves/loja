@@ -1,13 +1,20 @@
 /controller/
 /dao/
+<<<<<<< HEAD
 /funcionarios.png
 /fundoAlterarSenha.jpg
 /fundoCliente.jpg
 /fundoEscuro.png
+=======
+>>>>>>> e0b94aca3b35733ee913d9d894813bd5d960ee59
 /fundoFuncionario.jpg
 /fundoMenu.jpg
 /gerente.png
 /model/
 /view/
+<<<<<<< HEAD
 /funcionarioIcone.png
 /Users-Administrator-icon.png
+=======
+>>>>>>> e0b94aca3b35733ee913d9d894813bd5d960ee59
+/iconeBotaoVoltar.png
