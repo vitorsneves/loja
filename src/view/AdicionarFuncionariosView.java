@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JPasswordField;
 
 public class AdicionarFuncionariosView extends JFrame {
 
@@ -29,8 +30,8 @@ public class AdicionarFuncionariosView extends JFrame {
 	private JTextField textTelefone;
 	private JTextField textEmail;
 	private JTextField textLogin;
-	private JTextField textSenha;
-	private JTextField textConfirmarSenha;
+	private JPasswordField textSenha;
+	private JPasswordField TextConfirmarSenha;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -133,10 +134,8 @@ public class AdicionarFuncionariosView extends JFrame {
 		label_1.setBounds(10, 457, 82, 35);
 		contentPane.add(label_1);
 		
-		textSenha = new JTextField();
-		textSenha.setFont(new Font("Arial", Font.PLAIN, 13));
-		textSenha.setColumns(10);
-		textSenha.setBounds(10, 486, 362, 29);
+		textSenha = new JPasswordField();
+		textSenha.setBounds(10, 492, 363, 29);
 		contentPane.add(textSenha);
 		
 		JLabel label_2 = new JLabel("Confirmar senha *");
@@ -145,11 +144,9 @@ public class AdicionarFuncionariosView extends JFrame {
 		label_2.setBounds(10, 520, 202, 35);
 		contentPane.add(label_2);
 		
-		textConfirmarSenha = new JTextField();
-		textConfirmarSenha.setFont(new Font("Arial", Font.PLAIN, 13));
-		textConfirmarSenha.setColumns(10);
-		textConfirmarSenha.setBounds(10, 555, 362, 29);
-		contentPane.add(textConfirmarSenha);
+		TextConfirmarSenha = new JPasswordField();
+		TextConfirmarSenha.setBounds(10, 552, 363, 29);
+		contentPane.add(TextConfirmarSenha);
 		
 		JLabel label_a = new JLabel("Os campos com * são obrigatórios");
 		label_a.setForeground(Color.WHITE);
