@@ -67,7 +67,11 @@ public class OpcoesAdicionaisView extends JFrame {
 		//botão funcionários
 		JButton btnFuncionarios = new JButton("Funcion\u00E1rios");
 		btnFuncionarios.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent arg0) {
+				FuncionariosView view = new FuncionariosView();
+				view.setOpcoesAdicionais(getThis());
+				setEnabled(false);
+				view.setVisible(true);
 			}
 		});
 		btnFuncionarios.setHorizontalAlignment(SwingConstants.LEFT);
@@ -120,5 +124,6 @@ public class OpcoesAdicionaisView extends JFrame {
 	public OpcoesAdicionaisView getThis(){
 		return this;
 	}
+	
 
 }

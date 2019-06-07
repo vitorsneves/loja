@@ -9,12 +9,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FuncionariosView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
+	private OpcoesAdicionaisView opcoesAdicionais;
 
 	/**
 	 * Launch the application.
@@ -43,14 +46,6 @@ public class FuncionariosView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 55, 587, 221);
-		contentPane.add(scrollPane);
-		
-		textField = new JTextField();
-		scrollPane.setViewportView(textField);
-		textField.setColumns(10);
-		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(520, 23, 89, 23);
 		contentPane.add(btnBuscar);
@@ -69,11 +64,30 @@ public class FuncionariosView extends JFrame {
 		contentPane.add(btnRemover);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				opcoesAdicionais.setEnabled(true);
+				getThis().dispose();
+
+			}
+		});
 		btnVoltar.setBounds(22, 287, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.setBounds(300, 287, 89, 23);
 		contentPane.add(btnEditar);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(22, 58, 587, 218);
+		contentPane.add(textArea);
+	}
+	
+	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
+		this.opcoesAdicionais = opcoes;
+	}
+	
+	public FuncionariosView getThis() {
+		return this;
 	}
 }
