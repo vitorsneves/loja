@@ -76,7 +76,7 @@ public class AlterarSenhaView extends JFrame {
 		
 		btnContinuar = new JButton("Continuar");
 		btnContinuar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				controller.mudarSenha();
 			}
 		});
