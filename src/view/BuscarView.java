@@ -61,5 +61,6 @@ public class BuscarView extends JFrame {
 		fundo.setIcon(new ImageIcon(LoginView.class.getResource("/estoqueFundo.jpg")));
 		contentPane.add(fundo);
 		
+		setResizable(false);
 	}
 }

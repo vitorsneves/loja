@@ -56,6 +56,14 @@ public class FuncionariosView extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdicionarFuncionariosView view = new AdicionarFuncionariosView();
+				view.setJanenelaFuncionarios(getThis());
+				getThis().setVisible(false);
+				view.setVisible(true);
+			}
+		});
 		btnAdicionar.setBounds(520, 287, 89, 23);
 		contentPane.add(btnAdicionar);
 		
