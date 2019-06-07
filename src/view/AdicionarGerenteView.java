@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*package view;
+=======
+package view;
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,6 +31,12 @@ public class AdicionarGerenteView extends JFrame {
 	private JPasswordField Senha;
 	private JPasswordField ConfirmarSenha;
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Launch the application.
+	 */
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,6 +50,12 @@ public class AdicionarGerenteView extends JFrame {
 		});
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Create the frame.
+	 */
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 	public AdicionarGerenteView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 50, 411, 680);
@@ -183,4 +199,7 @@ public class AdicionarGerenteView extends JFrame {
 		contentPane.add(Fundo);
 	}
 }
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*package controller;
+=======
+package controller;
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -45,4 +49,7 @@ public class BuscarController {
 		}
 	}
 }
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5

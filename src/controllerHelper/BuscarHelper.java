@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*package controllerHelper;
+=======
+package controllerHelper;
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 
 import view.BuscarView;
 
@@ -24,4 +28,7 @@ public class BuscarHelper {
 		}
 	}
 }
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5

@@ -30,7 +30,6 @@ public class AdicionarFuncionariosView extends JFrame {
 	private JTextField textLogin;
 	private JPasswordField textSenha;
 	private JPasswordField TextConfirmarSenha;
-
 	private FuncionariosView janelaFuncionarios;
 	private AdicionarFuncionariosController funcionariosControlador;
 
@@ -46,13 +45,6 @@ public class AdicionarFuncionariosView extends JFrame {
 			}
 		});
 	}
-	
-	private OpcoesAdicionaisView op;
-		
-		public void setOpcoesAdicionais(OpcoesAdicionaisView op) {
-			this.op = op;
-			
-		}
 
 	public AdicionarFuncionariosView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,25 +61,21 @@ public class AdicionarFuncionariosView extends JFrame {
 		titulo01.setFont(new Font("Arial", Font.BOLD, 30));
 		titulo01.setBounds(152, 25, 221, 35);
 		contentPane.add(titulo01);
-
 		JLabel titulo02 = new JLabel("funcionario");
 		titulo02.setForeground(Color.WHITE);
 		titulo02.setFont(new Font("Arial", Font.BOLD, 30));
 		titulo02.setBounds(152, 70, 221, 35);
 		contentPane.add(titulo02);
-
 		JLabel nome = new JLabel("Nome *");
 		nome.setForeground(Color.WHITE);
 		nome.setFont(new Font("Arial", Font.BOLD, 20));
 		nome.setBounds(10, 119, 82, 35);
 		contentPane.add(nome);
-
 		textNome = new JTextField();
 		textNome.setBounds(11, 149, 362, 29);
 		textNome.setFont(new Font("Arial", Font.PLAIN, 13));
 		contentPane.add(textNome);
 		textNome.setColumns(10);
-
 		JLabel cpf = new JLabel("CPF *");
 		cpf.setForeground(Color.WHITE);
 		cpf.setFont(new Font("Arial", Font.BOLD, 20));
@@ -169,10 +157,7 @@ public class AdicionarFuncionariosView extends JFrame {
 		JButton btnNewButton_1 = new JButton("Confirmar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (funcionariosControlador.adicionarFuncionario() == true) {				
-					op.setEnabled(true);
-					dispose();
-				}
+				funcionariosControlador.adicionarFuncionario();
 			}
 		});
 		btnNewButton_1.setBounds(284, 610, 102, 23);
@@ -197,7 +182,6 @@ public class AdicionarFuncionariosView extends JFrame {
 		Fundo.setBounds(0, 0, 395, 649);
 		Fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/adicionarFuncionario.png")));
 		contentPane.add(Fundo);
-
 	}
 
 	public void setJanenelaFuncionarios(FuncionariosView janela) {
