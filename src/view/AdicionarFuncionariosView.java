@@ -161,11 +161,11 @@ public class AdicionarFuncionariosView extends JFrame {
 		textConfirmarSenha.setBounds(10, 555, 362, 29);
 		contentPane.add(textConfirmarSenha);
 		
-		JLabel label_2 = new JLabel("Os campos com * são obrigatórios");
-		label_2.setForeground(Color.WHITE);
-		label_2.setFont(new Font("Arial", Font.BOLD, 11));
-		label_2.setBounds(184, 582, 202, 23);
-		contentPane.add(label_2);
+		JLabel label_a = new JLabel("Os campos com * são obrigatórios");
+		label_a.setForeground(Color.WHITE);
+		label_a.setFont(new Font("Arial", Font.BOLD, 11));
+		label_a.setBounds(184, 582, 202, 23);
+		contentPane.add(label_a);
 		
 		JLabel label_3 = new JLabel("");
 		label_3.setBounds(25, -25, 158, 112);
@@ -196,11 +196,7 @@ public class AdicionarFuncionariosView extends JFrame {
 				contentPane.add(fundo);
 		
 		JLabel Fundo = new JLabel("");
-<<<<<<< HEAD
 		Fundo.setBounds(0, 0, 395, 649);
-=======
-		Fundo.setBounds(0, 0, 410, 653);
->>>>>>> 3513405891f7a97f3564ba5648dffb7bc8d0ef68
 		Fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/adicionarFuncionario.png")));
 		contentPane.add(Fundo);
 		
