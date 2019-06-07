@@ -29,7 +29,7 @@ public class ClienteController {
 			conexao = new ConexaoDao().getConnection();
 			ClienteDao clienteController = new ClienteDao(conexao);
 			clienteController.addCliente(cliente);
-			//JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+			JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
 			return true;
 		} catch (SQLException e1) {
 			e1.printStackTrace();
