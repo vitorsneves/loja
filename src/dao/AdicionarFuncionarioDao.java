@@ -18,12 +18,12 @@ public class AdicionarFuncionarioDao {
 		String sql = "insert into Funcionario(nome, cpf, telefone, email, login, senha) values (?, ?, ?, ?, ?, ?)";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, funcionario.getNome());
-		statement.setString(2, null);
-		statement.setString(3, null);
-		statement.setString(4, null);
-		statement.setString(5, null);
-		statement.setString(5, null);
+		statement.setString(2, funcionario.getCpf());
+		statement.setString(3, funcionario.getTelefone());
+		statement.setString(4, funcionario.getEmail());
+		statement.setString(5, funcionario.getUsuario().getLogin());
+		statement.setString(5, funcionario.getUsuario().getSenha());
 		statement.execute();
-		connection.close();
+
 	}
 }
