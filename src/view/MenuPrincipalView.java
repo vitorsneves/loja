@@ -90,6 +90,7 @@ public class MenuPrincipalView extends JFrame {
 		btnNewButton_3.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/chave.png")));
 		btnNewButton_3.setBounds(705, 377, 415, 82);
 		contentPane.add(btnNewButton_3);
+		btnNewButton_3.setEnabled(false);
 		
 		JLabel fundoEscuro = new JLabel("");
 		fundoEscuro.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoEscuro.png")));
