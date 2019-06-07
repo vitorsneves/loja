@@ -2,7 +2,11 @@ package controllerHelper;
 
 import java.util.ArrayList;
 
+import javax.swing.table.DefaultTableModel;
+
 import view.FuncionariosView; 
+import model.Funcionario;
+import 
 	
 public class FuncionariosHelper {
 	
@@ -12,7 +16,15 @@ public class FuncionariosHelper {
 		this.janelaFuncionarios = janela;
 	}
 	
-	public void preencher(arrayList<Funcionario>) {
-		
+	public void preencher(ArrayList<Funcionario> funcionarios) {
+		DefaultTableModel tableModel = (DefaultTableModel) janelaFuncionarios.getTableFuncionarios().getModel();
+		tableModel.setNumRows(0);
+		for(Funcionario funcionario : funcionarios) {
+			tableModel.addRow(new Object[] {
+					funcionario.getNome();
+					funcionario.getCpf();
+					funcionario.getTelefone();
+			});
+		}
 	}
-
+}
