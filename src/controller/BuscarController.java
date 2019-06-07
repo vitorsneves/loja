@@ -25,7 +25,7 @@ public class BuscarController {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new buscarDao(conexao);
 			ArrayList<produto> produtos = new buscaDao.buscarTudo();
-			helper.preencherTudo(produtos);
+			helper.preencher(produtos);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -38,8 +38,8 @@ public class BuscarController {
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new buscarDao(conexao);
-			ArrayList<produto> produtos = new buscaDao.buscarNome();
-			helper.preencherResultados(produtos);
+			ArrayList<produto> produtos = new buscaDao.buscarNome(String nome);
+			helper.preencher(produtos);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
