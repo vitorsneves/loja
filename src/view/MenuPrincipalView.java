@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 public class MenuPrincipalView extends JFrame {
 
 	private JPanel contentPane;
+	private int definirUsuario;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -91,6 +92,25 @@ public class MenuPrincipalView extends JFrame {
 		btnNewButton_3.setBounds(705, 377, 415, 82);
 		contentPane.add(btnNewButton_3);
 		btnNewButton_3.setEnabled(false);
+		JButton btnButton_3 = new JButton("Op\u00E7\u00F5es adicionais");
+		
+		btnButton_3.setHorizontalAlignment(SwingConstants.LEFT);
+		btnButton_3.setFont(new Font("Arial", Font.PLAIN, 30));
+		btnButton_3.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/chave.png")));
+		btnButton_3.setBounds(705, 377, 415, 82);
+		contentPane.add(btnButton_3);
+		if(this.definirUsuario == 3) {
+			btnButton_3.setEnabled(false);
+		}else {
+			btnButton_3.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					getThis().dispose();
+					OpcoesAdicionaisView opav = new OpcoesAdicionaisView();
+					opav.setVisible(true);
+				}
+			});
+			
+		}
 		
 		JLabel fundoEscuro = new JLabel("");
 		fundoEscuro.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoEscuro.png")));
@@ -108,5 +128,15 @@ public class MenuPrincipalView extends JFrame {
 	
 	public MenuPrincipalView getThis() {
 		return this;
+	}
+
+
+	public int getDefinirUsuario() {
+		return definirUsuario;
+	}
+
+
+	public void setDefinirUsuario(int definirUsuario) {
+		this.definirUsuario = definirUsuario;
 	}
 }

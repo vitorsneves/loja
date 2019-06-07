@@ -1,7 +1,6 @@
 package controller;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
@@ -12,14 +11,14 @@ import model.Usuario;
 import view.LoginView;
 import view.MenuPrincipalView;
 
+
 public class LoginController {
 	private LoginView view;
-	
 	
 	public LoginController(LoginView view) {
 		this.view = view;
 	}
-
+	
 	public void autenticar() {
 		String usuario = view.getTextUsuario().getText();
 		String senha = view.getTextSenha().getText();
@@ -29,16 +28,28 @@ public class LoginController {
 		Connection conexao = new ConexaoDao().getConnection();
 		UsuarioDao usuarioDao = new UsuarioDao(conexao);
 		int resultado = usuarioDao.autenticarUsuario(usuarioAutenticar);
-		if(resultado == 1) {
-			new MenuPrincipalView().setVisible(true);
+		if(resultado == 1 || resultado == 2 || resultado == 3) {
+			MenuPrincipalView menu = new MenuPrincipalView();
+			if(resultado == 1) {
+				menu.setDefinirUsuario(1);
+				menu.setVisible(true);
+			}
+			else if(resultado == 2) {
+				menu.setDefinirUsuario(2);
+				menu.setVisible(true);
+			}
+			else if(resultado == 3) {
+				menu.setDefinirUsuario(3);
+				menu.setVisible(true);
+			}
 		}
-		else if(resultado == 0) {
+		
+		else {
 			JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
 		}
 		}catch (SQLException e1) {
 			e1.printStackTrace();
 		}
 	}
-	
 	
 }
