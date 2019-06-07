@@ -14,11 +14,14 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BuscarView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private MenuPrincipalView janelaMenu;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -46,10 +49,21 @@ public class BuscarView extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton buscarBtn = new JButton("Buscar");
-		buscarBtn.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		buscarBtn.setBounds(688, 71, 91, 30);
-		contentPane.add(buscarBtn);
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				janelaMenu.setEnabled(true);
+				janelaMenu.toFront();
+			}
+		});
+		btnSair.setBounds(84, 490, 91, 30);
+		contentPane.add(btnSair);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnBuscar.setBounds(688, 71, 91, 30);
+		contentPane.add(btnBuscar);
 		
 		JLabel fundo02 = new JLabel("");
 		fundo02.setBounds(0, 32, 818, 523);
@@ -63,4 +77,14 @@ public class BuscarView extends JFrame {
 		
 		setResizable(false);
 	}
+
+	public void setJanelaMenu(MenuPrincipalView janelaMenu) {
+		this.janelaMenu = janelaMenu;
+	}
+	
+	public BuscarView getThis() {
+		return this;
+	}
+	
+	
 }

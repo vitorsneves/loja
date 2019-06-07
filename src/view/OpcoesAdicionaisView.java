@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,11 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.Border;
 
 public class OpcoesAdicionaisView extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnMudarSenha;
+	private MenuPrincipalView janelaMenuPrincipal;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -40,6 +43,25 @@ public class OpcoesAdicionaisView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		//botão para retornar ao menu principal (botão redondo)
+		JButton btnVoltar = new JButton("");
+		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				janelaMenuPrincipal.setVisible(true);
+				dispose();
+				janelaMenuPrincipal.toFront();
+			}
+		});
+		btnVoltar.setBounds(93, 55, 48, 48);
+		btnVoltar.setOpaque(false);
+		btnVoltar.setFocusPainted(false);
+		btnVoltar.setBorderPainted(false);
+		btnVoltar.setContentAreaFilled(false);
+		btnVoltar.setBorder(null);
+		btnVoltar.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/iconeBotaoVoltar.png")));
+		contentPane.add(btnVoltar);
 		
 		//título "menu" no topo da página
 		JLabel menu = new JLabel("MENU");
@@ -117,6 +139,10 @@ public class OpcoesAdicionaisView extends JFrame {
 	
 	public OpcoesAdicionaisView getThis(){
 		return this;
+	}
+	
+	public void setJanelaMenuPrincipal(MenuPrincipalView janela) {
+		this.janelaMenuPrincipal = janela;
 	}
 	
 

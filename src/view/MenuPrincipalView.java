@@ -60,7 +60,7 @@ public class MenuPrincipalView extends JFrame {
 		btnAdicionarCliente.setHorizontalAlignment(SwingConstants.LEFT);
 		btnAdicionarCliente.setFont(new Font("Arial", Font.PLAIN, 30));
 		btnAdicionarCliente.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/cliente.png")));
-		btnAdicionarCliente.setBounds(156, 377, 415, 82);
+		btnAdicionarCliente.setBounds(156, 351, 415, 82);
 		btnAdicionarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CriarClienteView clienteView = new CriarClienteView();
@@ -71,11 +71,21 @@ public class MenuPrincipalView extends JFrame {
 		});
 		contentPane.add(btnAdicionarCliente);
 
+		//botão procurar em estoque
+		//interage com a classe BuscarView
 		JButton btnBuscarEstoque = new JButton("Procurar em estoque");
+		btnBuscarEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { 
+				BuscarView janelaDeBusca = new BuscarView();
+				janelaDeBusca.setJanelaMenu(getThis());
+				setEnabled(false);
+				janelaDeBusca.setVisible(true);
+			}
+		});
 		btnBuscarEstoque.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBuscarEstoque.setFont(new Font("Arial", Font.PLAIN, 30));
 		btnBuscarEstoque.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estoque.png")));
-		btnBuscarEstoque.setBounds(156, 552, 415, 82);
+		btnBuscarEstoque.setBounds(156, 499, 415, 82);
 		contentPane.add(btnBuscarEstoque);
 		
 		JButton btnEstatisticas = new JButton("Estat\u00EDsticas");
@@ -89,19 +99,20 @@ public class MenuPrincipalView extends JFrame {
 		BtnOpcoesAdicionais.setHorizontalAlignment(SwingConstants.LEFT);
 		BtnOpcoesAdicionais.setFont(new Font("Arial", Font.PLAIN, 30));
 		BtnOpcoesAdicionais.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/chave.png")));
-		BtnOpcoesAdicionais.setBounds(705, 377, 415, 82);
+		BtnOpcoesAdicionais.setBounds(705, 351, 415, 82);
 		contentPane.add(BtnOpcoesAdicionais);
 		BtnOpcoesAdicionais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getThis().dispose();
+				setVisible(false);
 				OpcoesAdicionaisView opav = new OpcoesAdicionaisView();
+				opav.setJanelaMenuPrincipal(getThis());
 				opav.setVisible(true);
 			}
 		});
 		
 		JLabel fundoEscuro = new JLabel("");
 		fundoEscuro.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoEscuro.png")));
-		fundoEscuro.setBounds(32, 38, 1158, 693);
+		fundoEscuro.setBounds(32, 38, 1164, 598);
 		contentPane.add(fundoEscuro);
 		
 		JLabel fundo = new JLabel("");
