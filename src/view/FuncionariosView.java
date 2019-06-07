@@ -68,7 +68,6 @@ public class FuncionariosView extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				opcoesAdicionais.setEnabled(true);
 				getThis().dispose();
-
 			}
 		});
 		btnVoltar.setBounds(22, 287, 89, 23);

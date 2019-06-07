@@ -20,9 +20,6 @@ public class OpcoesAdicionaisView extends JFrame {
 	private JPanel contentPane;
 	private JButton btnMudarSenha;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,9 +33,6 @@ public class OpcoesAdicionaisView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public OpcoesAdicionaisView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 30, 1280, 700);
