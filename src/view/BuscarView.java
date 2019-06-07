@@ -77,35 +77,10 @@ public class BuscarView extends JFrame {
 		tableProdutos = new JTable();
 		tableProdutos.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
+				{null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "New column"
+				"Nome", "Pre\u00E7o", "Marca", "Cor", "Tamanho"
 			}
 		));
 		scrollPane.setViewportView(tableProdutos);

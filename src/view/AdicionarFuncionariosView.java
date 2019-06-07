@@ -33,9 +33,6 @@ public class AdicionarFuncionariosView extends JFrame {
 	private JPasswordField textSenha;
 	private JPasswordField TextConfirmarSenha;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,9 +46,6 @@ public class AdicionarFuncionariosView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public AdicionarFuncionariosView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 50, 411, 680);
@@ -98,8 +92,6 @@ public class AdicionarFuncionariosView extends JFrame {
 		textCPF.setBounds(11, 208, 362, 29);
 		contentPane.add(textCPF);
 		
-		
-		
 		JLabel telefone = new JLabel("(DDD) Telefone *");
 		telefone.setForeground(Color.WHITE);
 		telefone.setFont(new Font("Arial", Font.BOLD, 20));
@@ -111,8 +103,6 @@ public class AdicionarFuncionariosView extends JFrame {
 		textTelefone.setColumns(10);
 		textTelefone.setBounds(10, 279, 362, 29);
 		contentPane.add(textTelefone);
-		
-		
 		
 		JLabel email = new JLabel("E-mail *");
 		email.setForeground(Color.WHITE);

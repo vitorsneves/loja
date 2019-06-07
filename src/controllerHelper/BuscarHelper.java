@@ -4,6 +4,8 @@ import view.BuscarView;
 
 import java.util.ArrayList;
 
+import javax.swing.table.DefaultTableModel;
+
 public class BuscarHelper {
 	
 	private BuscarView janelaBuscar;
@@ -12,11 +14,13 @@ public class BuscarHelper {
 		this.janelaBuscar = janelaBuscar;
 	}
 	
-	public void preencherTudo(ArrayList<produto> produtos) {
-		
-	}
-	
-	public void preencherResultados(ArrayList<produto> produtos) {
-		
+	public void preencher(ArrayList<produto> produtos) {
+		DefaultTableModel tableModel = (DefaultTableModel) janelaBuscar.getTableProdutos().getModel();
+		tableModel.setNumRows(0);
+		for(Produto produto : produtos) {
+			tableModel.addRow(new Object[] {
+					
+			});
+		}
 	}
 }
