@@ -16,12 +16,17 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JProgressBar;
+import javax.swing.table.DefaultTableModel;
 
 public class BuscarView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private MenuPrincipalView janelaMenu;
+	private JTable tableProdutos;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -50,6 +55,7 @@ public class BuscarView extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.setBounds(84, 490, 91, 30);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -57,13 +63,52 @@ public class BuscarView extends JFrame {
 				janelaMenu.toFront();
 			}
 		});
-		btnSair.setBounds(84, 490, 91, 30);
 		contentPane.add(btnSair);
 		
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnBuscar.setBounds(688, 71, 91, 30);
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		contentPane.add(btnBuscar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(84, 135, 695, 344);
+		contentPane.add(scrollPane);
+		
+		tableProdutos = new JTable();
+		tableProdutos.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+			},
+			new String[] {
+				"New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(tableProdutos);
 		
 		JLabel fundo02 = new JLabel("");
 		fundo02.setBounds(0, 32, 818, 523);
@@ -82,9 +127,15 @@ public class BuscarView extends JFrame {
 		this.janelaMenu = janelaMenu;
 	}
 	
+	public JTable getTableProdutos() {
+		return tableProdutos;
+	}
+
+	public void setTableProdutos(JTable tableProdutos) {
+		this.tableProdutos = tableProdutos;
+	}
+
 	public BuscarView getThis() {
 		return this;
 	}
-	
-	
 }
