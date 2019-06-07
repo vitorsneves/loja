@@ -28,7 +28,7 @@ public class AdicionarFuncionariosController {
 			conexao = new ConexaoDao().getConnection();
 			AdicionarFuncionarioDao funcionariosDao = new AdicionarFuncionarioDao(conexao);
 			funcionariosDao.addFuncionario(funcionario);
-			JOptionPane.showMessageDialog(null, "Funcionário adicionado com sucesso");
+			JOptionPane.showMessageDialog(null, "Funcionário adicionado com sucesso", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -12,6 +12,7 @@ import controller.LoginController;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -79,6 +80,11 @@ public class AdicionarFuncionariosView extends JFrame {
 		});
 		btnNewButton_1.setBounds(310, 214, 102, 23);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel fundo = new JLabel("");
+		fundo.setBounds(-47, 0, 481, 261);
+		fundo.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEscuro.png")));
+		contentPane.add(fundo);
 	}
 	
 	public void setJanenelaFuncionarios(FuncionariosView janela) {
