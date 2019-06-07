@@ -31,7 +31,6 @@ public class LoginController {
 		int resultado = usuarioDao.autenticarUsuario(usuarioAutenticar);
 		if(resultado == 1) {
 			new MenuPrincipalView().setVisible(true);
-			view.dispose();
 		}
 		else if(resultado == 0) {
 			JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
