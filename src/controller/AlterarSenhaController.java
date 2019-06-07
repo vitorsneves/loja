@@ -21,13 +21,14 @@ public class AlterarSenhaController {
 		String senha01 = AlterarView.getTextSenha01().getText();
 		String senha02 = AlterarView.getTextSenha02().getText();
 		try {
-			if(senha01 == senha02) {
+			if(senha01.equals(senha02)) {
 				Connection conexao;
 				conexao = new ConexaoDao().getConnection();
 				AlterarSenhaDao senhaDao = new AlterarSenhaDao(conexao);
 				senhaDao.mudarSenhaNoBanco(senha01);
 			}
 		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Senhas diferentes");
 			e.printStackTrace();
 		}
 	}
