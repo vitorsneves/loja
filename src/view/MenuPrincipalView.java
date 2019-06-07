@@ -26,7 +26,7 @@ public class MenuPrincipalView extends JFrame {
 			public void run() {
 				try {
 					MenuPrincipalView frame = new MenuPrincipalView();
-					frame.setVisible(true);
+					frame.setVisible(true);					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -112,12 +112,15 @@ public class MenuPrincipalView extends JFrame {
 		setResizable(false);
 		
 	}
-	
-
 	public void definirUsuario(int definirUsuario, MenuPrincipalView menu) {
 		if(definirUsuario == 1) {
 			menu.setVisible(true);
 		}
+		
+		if(definirUsuario == 2) {
+			menu.setVisible(true);
+		}
+		
 		else if(definirUsuario == 3) {
 			menu.setVisible(true);
 			menu.getBtnOpcoesAdicionais().setEnabled(false);

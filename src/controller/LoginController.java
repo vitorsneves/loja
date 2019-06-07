@@ -30,7 +30,9 @@ public class LoginController {
 		int resultado = usuarioDao.autenticarUsuario(usuarioAutenticar);
 		if(resultado == 1 || resultado == 2 || resultado == 3) {
 			MenuPrincipalView menu = new MenuPrincipalView();
+
 			menu.definirUsuario(resultado, menu);
+
 			view.dispose(); //verificar
 		}
 		
