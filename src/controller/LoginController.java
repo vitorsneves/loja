@@ -26,17 +26,19 @@ public class LoginController {
 		Usuario usuarioAutenticar = new Usuario(usuario,senha);
 		
 		try{
-		Connection conexao = new ConexaoDao().getConnection();
-		UsuarioDao usuarioDao = new UsuarioDao(conexao);
-		int resultado = usuarioDao.autenticarUsuario(usuarioAutenticar);
-		if(resultado == 1) {
-			new MenuPrincipalView().setVisible(true);
-			view.dispose();
+			MenuPrincipalView frame1 = new MenuPrincipalView();
+			Connection conexao = new ConexaoDao().getConnection();
+			UsuarioDao usuarioDao = new UsuarioDao(conexao);
+			int resultado = usuarioDao.autenticarUsuario(usuarioAutenticar);
+			if(resultado == 1) {
+				frame1.setVisible(true);
+				view.dispose();
+			}
+			else if(resultado == 0) {
+				JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
+			}
 		}
-		else if(resultado == 0) {
-			JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
-		}
-		}catch (SQLException e1) {
+		catch (SQLException e1) {
 			e1.printStackTrace();
 		}
 	}

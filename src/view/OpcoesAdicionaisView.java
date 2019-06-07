@@ -92,6 +92,10 @@ public class OpcoesAdicionaisView extends JFrame {
 		btnMudarSenha = new JButton("Alterar senha");
 		btnMudarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AlterarSenhaView senhaView = new AlterarSenhaView();
+				senhaView.setOpcoesAdicionais(getThis());
+				senhaView.setVisible(true); 
+				getThis().setEnabled(false);
 			}
 		});
 		btnMudarSenha.setHorizontalAlignment(SwingConstants.LEFT);
@@ -111,6 +115,10 @@ public class OpcoesAdicionaisView extends JFrame {
 		contentPane.add(fundo);
 		
 		setResizable(false);
+	}
+	
+	public OpcoesAdicionaisView getThis(){
+		return this;
 	}
 
 }
