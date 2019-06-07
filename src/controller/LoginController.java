@@ -33,7 +33,7 @@ public class LoginController {
 
 			menu.definirUsuario(resultado, menu);
 
-			view.dispose(); //verificar
+			view.dispose();
 		}
 		
 		else {

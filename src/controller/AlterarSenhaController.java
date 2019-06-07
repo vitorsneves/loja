@@ -1,35 +1,39 @@
 package controller;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
-
 import dao.AlterarSenhaDao;
-import dao.ClienteDao;
 import dao.ConexaoDao;
 import view.AlterarSenhaView;
 
 public class AlterarSenhaController {
-	private AlterarSenhaView AlterarView;
+	private AlterarSenhaView alterarView;
 	
-	public AlterarSenhaController (AlterarSenhaView AlterarView) {
-		this.AlterarView = AlterarView;
+	public AlterarSenhaController (AlterarSenhaView alterarView) {
+		this.alterarView = alterarView;
 	}
 	
-	public void mudarSenha() {
-		String senha01 = AlterarView.getTextSenha01().getText();
-		String senha02 = AlterarView.getTextSenha02().getText();
+	public boolean mudarSenha() {
+		String senha01 = alterarView.getTextSenha01().getText();
+		String senha02 = alterarView.getTextSenha02().getText();
 		try {
 			if(senha01.equals(senha02)) {
 				Connection conexao;
 				conexao = new ConexaoDao().getConnection();
 				AlterarSenhaDao senhaDao = new AlterarSenhaDao(conexao);
 				senhaDao.mudarSenhaNoBanco(senha01);
+				alterarView.dispose();
+				return true;
 			}
+			else {
+				return false;
+			}
+		
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Senhas diferentes");
 			e.printStackTrace();
+			return false;			
 		}
+			
 	}
 }

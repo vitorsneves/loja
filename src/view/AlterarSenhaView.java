@@ -46,9 +46,11 @@ public class AlterarSenhaView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	private OpcoesAdicionaisView op;
+
+	public void setOpcoesAdicionais(OpcoesAdicionaisView op) {
+		this.op = op;
+	}
 	public AlterarSenhaView() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 395, 300);
@@ -56,61 +58,57 @@ public class AlterarSenhaView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel titulo01 = new JLabel("Digite a nova senha");
 		titulo01.setForeground(Color.WHITE);
 		titulo01.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo01.setBounds(29, 25, 231, 34);
 		contentPane.add(titulo01);
-		
+
 		textSenha01 = new JPasswordField();
 		textSenha01.setBounds(22, 70, 334, 34);
 		contentPane.add(textSenha01);
-		
+
 		JLabel titulo02;
 		titulo02 = new JLabel("Confimar senha");
 		titulo02.setForeground(Color.WHITE);
 		titulo02.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo02.setBounds(32, 117, 231, 34);
 		contentPane.add(titulo02);
-		
+
 		btnContinuar = new JButton("Continuar");
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.mudarSenha();
+				if (controller.mudarSenha() == true) {
+					op.toFront();
+					op.setEnabled(true);
+					getThis().dispose();				
+				}
 			}
 		});
-		
+
 		textSenha02 = new JPasswordField();
 		textSenha02.setBounds(22, 158, 334, 34);
 		contentPane.add(textSenha02);
 		btnContinuar.setBounds(229, 216, 127, 34);
 		contentPane.add(btnContinuar);
-		
+
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				opcoesAdicionais.setEnabled(true);
+				op.setEnabled(true);
 				getThis().dispose();
 			}
 		});
 		btnCancelar.setBounds(22, 216, 127, 34);
 		contentPane.add(btnCancelar);
-		
+
 		JLabel fundo = new JLabel("");
 		fundo.setIcon(new ImageIcon(LoginView.class.getResource("/fundoAlterarSenha.jpg")));
 		fundo.setBounds(0, 0, 400, 276);
 		contentPane.add(fundo);
 	}
 
-	public OpcoesAdicionaisView getOpcoesAdicionais() {
-		return opcoesAdicionais;
-	}
-
-	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoesAdicionais) {
-		this.opcoesAdicionais = opcoesAdicionais;
-	}
-	
 	public JPasswordField getTextSenha01() {
 		return textSenha01;
 	}
@@ -130,5 +128,5 @@ public class AlterarSenhaView extends JFrame {
 	public AlterarSenhaView getThis() {
 		return this;
 	}
-	
+
 }
