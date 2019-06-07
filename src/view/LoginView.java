@@ -44,7 +44,9 @@ public class LoginView extends JFrame {
 		this.textSenha = textSenha;
 	}
 
-	
+	/**
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -58,7 +60,9 @@ public class LoginView extends JFrame {
 		});
 	}
 
-	
+	/**
+	 * Create the frame.
+	 */
 	public LoginView() {
 		//controller = new LoginController(this);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -109,7 +113,6 @@ public class LoginView extends JFrame {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				controller.autenticar();
 			}
 		});

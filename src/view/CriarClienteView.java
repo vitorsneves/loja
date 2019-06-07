@@ -60,9 +60,6 @@ public class CriarClienteView extends JFrame {
 	private JTextField textTelefone;
 	private JTextField textEmail;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -169,8 +166,10 @@ public class CriarClienteView extends JFrame {
 		contentPane.add(btnConfirmar);
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.salvarCliente();
-
+				if(controller.salvarCliente() == true) {
+				menu.setEnabled(true);
+				getThis().dispose();
+				}
 			}
 		});
 		
@@ -195,4 +194,5 @@ public class CriarClienteView extends JFrame {
 	public CriarClienteView getThis() {
 		return this;
 	}
+	
 }
