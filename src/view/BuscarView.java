@@ -23,10 +23,11 @@ import controller.BuscarController;
 public class BuscarView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textNome;
 	private MenuPrincipalView janelaMenu;
 	private JTable tableProdutos;
 	private BuscarController buscarController = new BuscarController(this);
+	private JTextField textCodigo;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,10 +50,10 @@ public class BuscarView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(84, 71, 574, 30);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNome = new JTextField();
+		textNome.setBounds(81, 71, 286, 30);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.setBounds(84, 490, 91, 30);
@@ -63,6 +64,11 @@ public class BuscarView extends JFrame {
 				janelaMenu.toFront();
 			}
 		});
+		
+		textCodigo = new JTextField();
+		textCodigo.setBounds(377, 71, 286, 30);
+		contentPane.add(textCodigo);
+		textCodigo.setColumns(10);
 		contentPane.add(btnSair);
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -119,6 +125,10 @@ public class BuscarView extends JFrame {
 
 	public void setTableProdutos(JTable tableProdutos) {
 		this.tableProdutos = tableProdutos;
+	}
+
+	public JTextField getTextNome() {
+		return textNome;
 	}
 
 	public BuscarView getThis() {
