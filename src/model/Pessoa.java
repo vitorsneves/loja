@@ -6,8 +6,11 @@ public class Pessoa {
 	private String telefone;
 	private String email;
 	
-	public Pessoa(){
-		
+	public Pessoa() {
+		setNome(null);
+		setCpf(null);
+		setTelefone(null);
+		setEmail(null);
 	}
 	
 	public Pessoa(String nome, String cpf, String telefone, String email) {

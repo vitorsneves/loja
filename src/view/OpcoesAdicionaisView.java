@@ -160,6 +160,4 @@ public class OpcoesAdicionaisView extends JFrame {
 	public void setJanelaMenuPrincipal(MenuPrincipalView janela) {
 		this.janelaMenuPrincipal = janela;
 	}
-	
-
 }

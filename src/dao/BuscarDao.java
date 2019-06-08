@@ -7,7 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import model.Gerente;
+=======
+import model.Funcionario;
+>>>>>>> 84df7a64fbf18715910b92038d9b23359ea56c8c
 import model.Produto;
 
 public class BuscarDao {
@@ -16,7 +20,7 @@ public class BuscarDao {
 	public BuscarDao(Connection connection) {
 		this.connection = connection;
 	}
-
+	//métodos de busca de produtos
 	public ArrayList<Produto> exibirProdutos() throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		String sql = "select * from produtos";
@@ -89,4 +93,5 @@ public class BuscarDao {
 
 		return gerentes;
 	}
+	//fim dos métodos de busca de produtos
 }
