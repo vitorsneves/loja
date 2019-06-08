@@ -69,9 +69,18 @@ public class OpcoesAdicionaisView extends JFrame {
 		menu.setFont(new Font("Arial", Font.BOLD, 60));
 		menu.setBounds(544, 59, 189, 109);
 		contentPane.add(menu);
+		
+		//Botão gerente
 		JButton btnGerentes = new JButton("Gerentes");
 		btnGerentes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				GerenteView view1 = new GerenteView();
+				view1.setOpcoesAdicionais(getThis());
+				setEnabled(false);
+				view1.setVisible(true);
+				
+				
 			}
 		});
 		btnGerentes.setHorizontalAlignment(SwingConstants.LEFT);

@@ -186,6 +186,7 @@ public class AdicionarFuncionariosView extends JFrame {
 		fundo.setBounds(35, 25, 89, 74);
 		contentPane.add(fundo);
 
+
 		JLabel Fundo = new JLabel("");
 		Fundo.setBounds(0, 0, 395, 649);
 		Fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/adicionarFuncionario.png")));
