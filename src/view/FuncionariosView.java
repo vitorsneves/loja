@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.FuncionarioController;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -27,6 +30,7 @@ public class FuncionariosView extends JFrame {
 	private OpcoesAdicionaisView opcoesAdicionais;
 	private JTable tableFuncionarios;
 	JComboBox criterioDeBusca;
+	FuncionarioController funcionarioController = new FuncionarioController(this);
 
 	
 	public static void main(String[] args) {
@@ -129,6 +133,8 @@ public class FuncionariosView extends JFrame {
 		btnVoltar.setBounds(24, 633, 153, 37);
 
 		contentPane.add(btnVoltar);
+		
+		funcionarioController.preencherTudo();
 
 	}
 	
