@@ -20,14 +20,15 @@ import javax.swing.table.DefaultTableModel;
 
 import controller.BuscarController;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
-public class BuscarView extends JFrame {
+public class EstoqueView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNome;
-	private MenuPrincipalView janelaMenu;
+	private OpcoesAdicionaisView janelaEstoque;
 	private JTable tableProdutos;
-	private BuscarController buscarController = new BuscarController(this);
+	//private BuscarController buscarController = new BuscarController(this);
 	private JTextField textCodigo;
 
 	public static void main(String[] args) {
@@ -43,13 +44,20 @@ public class BuscarView extends JFrame {
 		});
 	}
 
-	public BuscarView() {
+	public EstoqueView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 879, 625);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JLabel lblControleDeEstoque = new JLabel("Controle de Estoque");
+		lblControleDeEstoque.setHorizontalAlignment(SwingConstants.CENTER);
+		lblControleDeEstoque.setForeground(Color.WHITE);
+		lblControleDeEstoque.setFont(new Font("Arial", Font.PLAIN, 40));
+		lblControleDeEstoque.setBounds(146, 0, 569, 59);
+		contentPane.add(lblControleDeEstoque);
 		
 		JLabel Nome = new JLabel("Nome do produto");
 		Nome.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -73,8 +81,8 @@ public class BuscarView extends JFrame {
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				janelaMenu.setEnabled(true);
-				janelaMenu.toFront();
+				janelaEstoque.setEnabled(true);
+				janelaEstoque.toFront();
 			}
 		});
 		
@@ -87,7 +95,7 @@ public class BuscarView extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buscarController.preencherResultados();
+				//buscarController.preencherResultados();
 			}
 		});
 		btnBuscar.setBounds(688, 71, 91, 30);
@@ -95,14 +103,14 @@ public class BuscarView extends JFrame {
 		contentPane.add(btnBuscar);
 		btnBuscar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			buscarController.preencherResultados();
+			//buscarController.preencherResultados();
 		}
 	});
 		
 		JButton btnExibirTodos = new JButton("Exibir tudo");
 		btnExibirTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buscarController.preencherTudo();
+				//buscarController.preencherTudo();
 			}
 		});
 		btnExibirTodos.setBounds(688, 494, 91, 30);
@@ -122,24 +130,29 @@ public class BuscarView extends JFrame {
 		));
 		scrollPane.setViewportView(tableProdutos);
 		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEscuro.png")));
+		label.setBounds(102, -11, 613, 59);
+		contentPane.add(label);
+		
 		JLabel fundo02 = new JLabel("");
-		fundo02.setBounds(0, 32, 818, 523);
+		fundo02.setBounds(10, 48, 818, 523);
 		fundo02.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEscuro.png")));
 		contentPane.add(fundo02);
 		
 		JLabel fundo = new JLabel("");
-		fundo.setBounds(-143, -17, 1095, 617);
-		fundo.setIcon(new ImageIcon(LoginView.class.getResource("/estoqueFundo.jpg")));
+		fundo.setBounds(-143, -51, 1018, 686);
+		fundo.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEstoque2.jpg")));
 		contentPane.add(fundo);
 		
 		setResizable(false);
 		
 		//preenche todas a colunas
-		buscarController.preencherTudo();
+		//buscarController.preencherTudo();
 	}
 
-	public void setJanelaMenu(MenuPrincipalView janelaMenu) {
-		this.janelaMenu = janelaMenu;
+	public void setJanelaEstoque(OpcoesAdicionaisView janelaEstoque) {
+		this.janelaEstoque = janelaEstoque;
 	}
 	
 	public JTable getTableProdutos() {
@@ -158,7 +171,8 @@ public class BuscarView extends JFrame {
 		return textNome;
 	}
 
-	public BuscarView getThis() {
+	public EstoqueView getThis() {
 		return this;
 	}
 }
+

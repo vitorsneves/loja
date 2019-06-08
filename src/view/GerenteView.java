@@ -24,7 +24,6 @@ public class GerenteView extends JFrame {
 	private JTable table;
 	private JTextField textNome;
 	private OpcoesAdicionaisView opcoesAdicionais;
-	private JTextField textBuscarCPF;
 	/**
 	 * Launch the application.
 	 */
@@ -63,7 +62,7 @@ public class GerenteView extends JFrame {
 		scrollPane.setColumnHeaderView(lblNewLabel_1);
 		
 		textNome = new JTextField();
-		textNome.setBounds(29, 53, 694, 37);
+		textNome.setBounds(29, 53, 899, 37);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 		
@@ -136,20 +135,10 @@ public class GerenteView extends JFrame {
 		button_3.setBounds(29, 633, 153, 37);
 		contentPane.add(button_3);
 		
-		textBuscarCPF = new JTextField();
-		textBuscarCPF.setBounds(733, 53, 195, 37);
-		contentPane.add(textBuscarCPF);
-		textBuscarCPF.setColumns(10);
-		
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setBounds(29, 20, 129, 33);
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
 		contentPane.add(lblNome);
-		
-		JLabel lblCpf = new JLabel("CPF");
-		lblCpf.setBounds(733, 20, 103, 33);
-		lblCpf.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(lblCpf);
 		
 	}
 

@@ -16,7 +16,7 @@ public class BuscarDao {
 		this.connection = connection;	
 	}
 	
-	public ArrayList<Produto> buscarTudo() throws SQLException {
+	public ArrayList<Produto> exibirProdutos() throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		String sql = "select * from produtos";
 		PreparedStatement statement = connection.prepareStatement(sql);
@@ -36,11 +36,10 @@ public class BuscarDao {
 		return produtos;	
 	}
 	
-	public ArrayList<Produto> buscarNome(String nome, int codigo) throws SQLException {
+	public ArrayList<Produto> buscarProduto(String nome, int codigo) throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
-		String sql = "select * from produtos where nome like '%?%' or codigo like '%?%'";
+		String sql =  "select * from produtos where nome like '%"+ nome +"%' or codigo like %"+ codigo +"%";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, nome);
 		ResultSet resultado = statement.executeQuery();
 		while(resultado.next()) {
 			Produto produto = new Produto();
@@ -55,6 +54,7 @@ public class BuscarDao {
 			produtos.add(produto);
 			
 		}
-		return produtos;	
+		
+		return produtos;		
 	}
 }

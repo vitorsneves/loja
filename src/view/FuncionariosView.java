@@ -21,7 +21,6 @@ public class FuncionariosView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_1;
-	private JTextField textBuscarCPF;
 	private OpcoesAdicionaisView opcoesAdicionais;
 
 	
@@ -59,7 +58,7 @@ public class FuncionariosView extends JFrame {
 		});
 		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btnBuscar.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/lupa32.png")));
-		btnBuscar.setBounds(938, 50, 153, 37);
+		btnBuscar.setBounds(938, 53, 153, 37);
 		contentPane.add(btnBuscar);
 		
 		JLabel lblNome = new JLabel("Nome");
@@ -68,19 +67,11 @@ public class FuncionariosView extends JFrame {
 		contentPane.add(lblNome);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(29, 53, 694, 37);
+
+		textField_1.setBounds(29, 53, 894, 37);
+
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
-		JLabel lblCpf = new JLabel("CPF");
-		lblCpf.setBounds(733, 20, 103, 33);
-		lblCpf.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(lblCpf);
-		
-		textBuscarCPF = new JTextField();
-		textBuscarCPF.setBounds(733, 53, 195, 37);
-		contentPane.add(textBuscarCPF);
-		textBuscarCPF.setColumns(10);
 		
 		//botão adicionar
 		JButton btnAdicionar = new JButton("Adicionar");
@@ -128,6 +119,7 @@ public class FuncionariosView extends JFrame {
 		btnEditar.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/engrenagem32.png")));
 		btnEditar.setBounds(570, 633, 153, 37);
 		contentPane.add(btnEditar);
+
 	}
 	
 	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {

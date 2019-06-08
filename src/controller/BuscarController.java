@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 
 import controllerHelper.BuscarHelper;
@@ -26,7 +27,7 @@ public class BuscarController {
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new BuscarDao(conexao);
-			ArrayList<Produto> produtos = buscarDao.buscarTudo();
+			ArrayList<Produto> produtos = buscarDao.exibirProdutos();
 			helper.preencher(produtos);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -40,10 +41,13 @@ public void preencherResultados() {
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new BuscarDao(conexao);
-			ArrayList<Produto> produtos = buscarDao.buscarNome(janelaBuscar.getTextNome().getText(),
+			ArrayList<Produto> produtos = buscarDao.buscarProduto(janelaBuscar.getTextNome().getText(),
 					Integer.parseInt(janelaBuscar.getTextCodigo().getText()));
 			helper.preencher(produtos);
 		} 
+		catch(SQLSyntaxErrorException e) {
+			helper.apagarTabela();
+		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
