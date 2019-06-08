@@ -93,6 +93,7 @@ public class OpcoesAdicionaisView extends JFrame {
 		JButton btnFuncionarios = new JButton("Funcion\u00E1rios");
 		btnFuncionarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				FuncionariosView view = new FuncionariosView();
 				view.setOpcoesAdicionais(getThis());
 				setEnabled(false);
