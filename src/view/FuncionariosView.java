@@ -18,6 +18,7 @@ public class FuncionariosView extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField_1;
 	private OpcoesAdicionaisView opcoesAdicionais;
+	private JTextField textField;
 
 	
 	public static void main(String[] args) {
@@ -46,7 +47,7 @@ public class FuncionariosView extends JFrame {
 		contentPane.add(btnBuscar);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(22, 24, 465, 20);
+		textField_1.setBounds(22, 24, 337, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -87,6 +88,11 @@ public class FuncionariosView extends JFrame {
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(22, 58, 587, 218);
 		contentPane.add(textArea);
+		
+		textField = new JTextField();
+		textField.setBounds(369, 24, 141, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
 	}
 	
 	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
