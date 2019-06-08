@@ -45,7 +45,7 @@ public class FuncionariosDao {
 		}
 		else {
 			int codigo = Integer.parseInt(informacaoDigitada);
-			sql =  "select * from produtos where codigo ="+codigo+"";
+			sql =  "select * from produtos where codigo ="+	codigo+"";
 		}
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
