@@ -2,7 +2,6 @@
 
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -11,15 +10,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JProgressBar;
 import javax.swing.table.DefaultTableModel;
+
+import controller.BuscarController;
 
 public class BuscarView extends JFrame {
 
@@ -27,6 +26,7 @@ public class BuscarView extends JFrame {
 	private JTextField textField;
 	private MenuPrincipalView janelaMenu;
 	private JTable tableProdutos;
+	private BuscarController buscarController = new BuscarController(this);
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -70,6 +70,14 @@ public class BuscarView extends JFrame {
 		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		contentPane.add(btnBuscar);
 		
+		JButton btnExibirTodos = new JButton("Exibir tudo");
+		btnExibirTodos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnExibirTodos.setBounds(688, 494, 91, 30);
+		contentPane.add(btnExibirTodos);
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(84, 135, 695, 344);
 		contentPane.add(scrollPane);
@@ -77,10 +85,9 @@ public class BuscarView extends JFrame {
 		tableProdutos = new JTable();
 		tableProdutos.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
 			},
 			new String[] {
-				"Nome", "Pre\u00E7o", "Marca", "Cor", "Tamanho"
+				"C\u00F3digo", "Nome", "Fabricante", "Tamanho", "Tipo", "Quantidade", "Pre\u00E7o"
 			}
 		));
 		scrollPane.setViewportView(tableProdutos);
@@ -96,6 +103,9 @@ public class BuscarView extends JFrame {
 		contentPane.add(fundo);
 		
 		setResizable(false);
+		
+		//preenche todas a colunas
+		buscarController.preencherTudo();
 	}
 
 	public void setJanelaMenu(MenuPrincipalView janelaMenu) {

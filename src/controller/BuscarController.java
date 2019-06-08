@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*package controller;
-=======
 package controller;
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -28,7 +24,7 @@ public class BuscarController {
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new buscarDao(conexao);
-			ArrayList<produto> produtos = new buscaDao.buscarTudo();
+			ArrayList<produto> produtos = buscaDao.buscarTudo();
 			helper.preencher(produtos);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -42,14 +38,11 @@ public class BuscarController {
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new buscarDao(conexao);
-			ArrayList<produto> produtos = new buscaDao.buscarNome(String nome);
+			ArrayList<produto> produtos = buscaDao.buscarNome(String nome);
 			helper.preencher(produtos);
-		} catch(Exception e) {
+		} 
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 }
-<<<<<<< HEAD
-*/
-=======
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5

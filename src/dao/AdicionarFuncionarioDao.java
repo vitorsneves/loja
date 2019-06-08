@@ -22,13 +22,7 @@ public class AdicionarFuncionarioDao {
 		statement.setString(3, funcionario.getTelefone());
 		statement.setString(4, funcionario.getEmail());
 		statement.setString(5, funcionario.getUsuario().getLogin());
-<<<<<<< HEAD
 		statement.setString(6, funcionario.getUsuario().getSenha());
 		statement.execute();
-=======
-		statement.setString(5, funcionario.getUsuario().getSenha());
-		statement.execute();
-
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 	}
 }

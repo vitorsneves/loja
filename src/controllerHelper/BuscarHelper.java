@@ -19,7 +19,13 @@ public class BuscarHelper {
 		tableModel.setNumRows(0);
 		for(Produto produto : produtos) {
 			tableModel.addRow(new Object[] {
-					
+					produto.getCodigo(),
+					produto.getNome(),
+					produto.getFabricante(),
+					produto.getTamanho(),
+					produto.getTipo(),
+					produto.getQuantidade(),
+					produto.getPreco(),
 			});
 		}
 	}
