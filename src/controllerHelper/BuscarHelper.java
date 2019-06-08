@@ -28,9 +28,13 @@ public class BuscarHelper {
                 produto.getTipo(),
                 produto.getQuantidade(),
                 produto.getPreco(),
-			
-
 			});
 		}
+		
+	}
+	
+	public void apagarTabela() {
+		DefaultTableModel tableModel = (DefaultTableModel) janelaBuscar.getTableProdutos().getModel();
+		tableModel.setNumRows(0);
 	}
 }

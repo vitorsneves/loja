@@ -45,7 +45,7 @@ public void preencherResultados() {
 			helper.preencher(produtos);
 		} 
 		catch(Exception e) {
-			e.printStackTrace();
+			
 		}
 	} 
 }

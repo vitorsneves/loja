@@ -38,9 +38,10 @@ public class BuscarDao {
 	
 	public ArrayList<Produto> buscarNome(String nome, int codigo) throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
-		String sql = "select * from produtos where nome like '%?%' or codigo like '%?%'";
+		String sql = "select * from produtos where nome like '%?%' or codigo like %?%";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, nome);
+		statement.setInt(2, codigo);
 		ResultSet resultado = statement.executeQuery();
 		while(resultado.next()) {
 			Produto produto = new Produto();
