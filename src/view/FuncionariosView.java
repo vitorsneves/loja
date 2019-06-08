@@ -16,12 +16,17 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTable;
 
 public class FuncionariosView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField_1;
+	private JTextField textBusca;
 	private OpcoesAdicionaisView opcoesAdicionais;
+	private JTable tableFuncionarios;
+	JComboBox criterioDeBusca;
 
 	
 	public static void main(String[] args) {
@@ -45,9 +50,19 @@ public class FuncionariosView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(29, 127, 1062, 469);
-		contentPane.add(scrollPane);
+		criterioDeBusca = new JComboBox();
+		criterioDeBusca.setFont(new Font("Arial", Font.PLAIN, 14));
+		criterioDeBusca.setModel(new DefaultComboBoxModel(new String[] {"Nome do gerente", "Cpf do gerente"}));
+		criterioDeBusca.setBounds(29, 19, 137, 23);
+		contentPane.add(criterioDeBusca);
+		
+		textBusca = new JTextField();
+		textBusca.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		
+				textBusca.setBounds(29, 53, 894, 37);
+				
+						contentPane.add(textBusca);
+						textBusca.setColumns(10);
 		
 		//botão BUSCAR
 		JButton btnBuscar = new JButton("Buscar");
@@ -61,17 +76,12 @@ public class FuncionariosView extends JFrame {
 		btnBuscar.setBounds(938, 53, 153, 37);
 		contentPane.add(btnBuscar);
 		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(29, 20, 129, 33);
-		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(lblNome);
+		JScrollPane scrollGerentes = new JScrollPane();
+		scrollGerentes.setBounds(29, 127, 1062, 469);
+		contentPane.add(scrollGerentes);
 		
-		textField_1 = new JTextField();
-
-		textField_1.setBounds(29, 53, 894, 37);
-
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		tableFuncionarios = new JTable();
+		scrollGerentes.setViewportView(tableFuncionarios);
 		
 		//botão adicionar
 		JButton btnAdicionar = new JButton("Adicionar");
@@ -101,16 +111,11 @@ public class FuncionariosView extends JFrame {
 		//Botão voltar
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				opcoesAdicionais.setEnabled(true);
 				getThis().dispose();
 			}
 		});
-		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnVoltar.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/voltar32.png")));
-		btnVoltar.setBounds(24, 633, 153, 37);
-
-		contentPane.add(btnVoltar);
 		
 		//botão editar
 		JButton btnEditar = new JButton("Editar");
@@ -119,6 +124,11 @@ public class FuncionariosView extends JFrame {
 		btnEditar.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/engrenagem32.png")));
 		btnEditar.setBounds(570, 633, 153, 37);
 		contentPane.add(btnEditar);
+		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 20));
+		btnVoltar.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/voltar32.png")));
+		btnVoltar.setBounds(24, 633, 153, 37);
+
+		contentPane.add(btnVoltar);
 
 	}
 	
@@ -130,6 +140,18 @@ public class FuncionariosView extends JFrame {
 		return opcoesAdicionais;
 	}
 	
+	public JComboBox getCriterioDeBusca() {
+		return criterioDeBusca;
+	}
+	
+	public JTable getTableFuncionarios() {
+		return tableFuncionarios;
+	}
+	
+	public JTextField getTextBusca() {
+		return textBusca;
+	}
+
 	public FuncionariosView getThis() {
 		return this;
 	}
