@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*package view;
-=======
 package view;
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,6 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controller.AdicionarFuncionariosController;
+
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 
@@ -31,12 +30,6 @@ public class AdicionarGerenteView extends JFrame {
 	private JPasswordField Senha;
 	private JPasswordField ConfirmarSenha;
 
-<<<<<<< HEAD
-=======
-	/**
-	 * Launch the application.
-	 */
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,12 +43,6 @@ public class AdicionarGerenteView extends JFrame {
 		});
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * Create the frame.
-	 */
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
 	public AdicionarGerenteView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 50, 411, 680);
@@ -94,8 +81,6 @@ public class AdicionarGerenteView extends JFrame {
 		textCPF.setBounds(11, 208, 362, 29);
 		contentPane.add(textCPF);
 		
-		
-		
 		JLabel telefone = new JLabel("(DDD) Telefone *");
 		telefone.setForeground(Color.WHITE);
 		telefone.setFont(new Font("Arial", Font.BOLD, 20));
@@ -107,8 +92,6 @@ public class AdicionarGerenteView extends JFrame {
 		textTelefone.setColumns(10);
 		textTelefone.setBounds(10, 279, 362, 29);
 		contentPane.add(textTelefone);
-		
-		
 		
 		JLabel email = new JLabel("E-mail *");
 		email.setForeground(Color.WHITE);
@@ -164,34 +147,33 @@ public class AdicionarGerenteView extends JFrame {
 		label_3.setBounds(25, -25, 158, 112);
 		contentPane.add(label_3);
 				
-				JButton btnNewButton_1 = new JButton("Confirmar");
-				btnNewButton_1.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						funcionariosControlador.adicionarFuncionario();
-					}
-				});
-				btnNewButton_1.setBounds(284, 610, 102, 23);
-				contentPane.add(btnNewButton_1);
-				
-				JButton btnVoltar = new JButton("voltar");
-				btnVoltar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-						janelaFuncionarios.setVisible(true);
-					}
-				});
-				btnVoltar.setBounds(185, 610, 89, 23);
-				contentPane.add(btnVoltar);
-				
-				textField = new JTextField();
-				textField.setBounds(10, 146, 363, 29);
-				contentPane.add(textField);
-				textField.setColumns(10);
+		JButton btnNewButton_1 = new JButton("Confirmar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		btnNewButton_1.setBounds(284, 610, 102, 23);
+		contentPane.add(btnNewButton_1);
 		
-				JLabel fundo = new JLabel("");
-				fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/Users-Administrator-icon.png")));
-				fundo.setBounds(35, 25, 89, 74);
-				contentPane.add(fundo);
+		JButton btnVoltar = new JButton("voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnVoltar.setBounds(185, 610, 89, 23);
+		contentPane.add(btnVoltar);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 146, 363, 29);
+		contentPane.add(textField);
+		textField.setColumns(10);
+
+		JLabel fundo = new JLabel("");
+		fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/Users-Administrator-icon.png")));
+		fundo.setBounds(35, 25, 89, 74);
+		contentPane.add(fundo);
 		
 		JLabel Fundo = new JLabel("");
 		Fundo.setBounds(0, 0, 397, 633);
@@ -199,7 +181,3 @@ public class AdicionarGerenteView extends JFrame {
 		contentPane.add(Fundo);
 	}
 }
-<<<<<<< HEAD
-*/
-=======
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5

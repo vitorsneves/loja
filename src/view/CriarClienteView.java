@@ -24,42 +24,6 @@ public class CriarClienteView extends JFrame {
 	private JTextField textNome;
 	private JTextField textCpf;
 	private ClienteController controller = new ClienteController(this);
-<<<<<<< HEAD
-=======
-	
-	public JTextField getTextNome() {
-		return textNome;
-	}
-
-	public void setTextNome(JTextField textNome) {
-		this.textNome = textNome;
-	}
-
-	public JTextField getTextCpf() {
-		return textCpf;
-	}
-
-	public void setTextCpf(JTextField textCpf) {
-		this.textCpf = textCpf;
-	}
-
-	public JTextField getTextTelefone() {
-		return textTelefone;
-	}
-
-	public void setTextTelefone(JTextField textTelefone) {
-		this.textTelefone = textTelefone;
-	}
-
-	public JTextField getTextEmail() {
-		return textEmail;
-	}
-
-	public void setTextEmail(JTextField textEmail) {
-		this.textEmail = textEmail;
-	}
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
-
 	private JTextField textTelefone;
 	private JTextField textEmail;
 
@@ -197,7 +161,6 @@ public class CriarClienteView extends JFrame {
 	public CriarClienteView getThis() {
 		return this;
 	}
-<<<<<<< HEAD
 	public JTextField getTextNome() {
 		return textNome;
 	}
@@ -228,8 +191,5 @@ public class CriarClienteView extends JFrame {
 
 	public void setTextEmail(JTextField textEmail) {
 		this.textEmail = textEmail;
-	}
-=======
->>>>>>> 55dc046ae5f73a767c0010a99cb130bb918208c5
-	
+	}	
 }

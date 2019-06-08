@@ -57,6 +57,9 @@ public class FuncionariosView extends JFrame {
 				view.setJanenelaFuncionarios(getThis());
 				getThis().setVisible(false);
 				view.setVisible(true);
+				opcoesAdicionais.toFront();
+				view.toFront();
+				
 			}
 		});
 		btnAdicionar.setBounds(520, 287, 89, 23);
@@ -87,6 +90,10 @@ public class FuncionariosView extends JFrame {
 	
 	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
 		this.opcoesAdicionais = opcoes;
+	}
+	
+	public OpcoesAdicionaisView getOpcoesAdicionais () {
+		return opcoesAdicionais;
 	}
 	
 	public FuncionariosView getThis() {

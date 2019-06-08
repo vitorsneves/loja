@@ -158,6 +158,11 @@ public class AdicionarFuncionariosView extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				funcionariosControlador.adicionarFuncionario();
+				dispose();
+				janelaFuncionarios.setVisible(true);
+				janelaFuncionarios.getOpcoesAdicionais().toFront();
+				janelaFuncionarios.toFront();
+				
 			}
 		});
 		btnNewButton_1.setBounds(284, 610, 102, 23);
@@ -168,6 +173,9 @@ public class AdicionarFuncionariosView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				janelaFuncionarios.setVisible(true);
+				janelaFuncionarios.getOpcoesAdicionais().setEnabled(true);
+				janelaFuncionarios.getOpcoesAdicionais().toFront();
+				janelaFuncionarios.toFront();
 			}
 		});
 		btnVoltar.setBounds(185, 610, 89, 23);
