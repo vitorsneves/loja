@@ -26,6 +26,8 @@ public class AdicionarGerenteView extends JFrame {
 	private JTextField textLogin;
 	private JPasswordField Senha;
 	private JPasswordField ConfirmarSenha;
+	private GerenteView gerenteView;
+
 
 	/**
 	 * Launch the application.
@@ -163,11 +165,14 @@ public class AdicionarGerenteView extends JFrame {
 				btnNewButton_1.setBounds(284, 610, 102, 23);
 				contentPane.add(btnNewButton_1);
 				
-				JButton btnVoltar = new JButton("voltar");
+				JButton btnVoltar = new JButton("Voltar");
 				btnVoltar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+
 						dispose();
-						janelaFuncionarios.setVisible(true);
+						gerenteView.setVisible(true);
+						gerenteView.getOpcoesAdicionais().toFront();
+						gerenteView.toFront();
 					}
 				});
 				btnVoltar.setBounds(185, 610, 89, 23);
@@ -188,4 +193,9 @@ public class AdicionarGerenteView extends JFrame {
 		Fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/FundoAdicionarGerente1.jpg")));
 		contentPane.add(Fundo);
 	}
+	
+	public void setGerenteView(GerenteView opcoes) {
+		this.gerenteView = opcoes;
+	}
+	
 }

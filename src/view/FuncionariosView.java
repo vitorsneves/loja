@@ -71,6 +71,7 @@ public class FuncionariosView extends JFrame {
 		btnRemover.setBounds(410, 287, 89, 23);
 		contentPane.add(btnRemover);
 		
+		//Botão voltar
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

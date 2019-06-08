@@ -167,7 +167,7 @@ public class AdicionarFuncionariosView extends JFrame {
 				btnNewButton_1.setBounds(284, 610, 102, 23);
 				contentPane.add(btnNewButton_1);
 				
-				JButton btnVoltar = new JButton("voltar");
+				JButton btnVoltar = new JButton("Voltar");
 				btnVoltar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
