@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import dao.AdicionarGerenteDao;
 import dao.ConexaoDao;
 import model.Funcionario;
+import model.Usuario;
 import view.AdicionarGerenteView;
 
 public class AdicionarGerenteController {
@@ -23,18 +24,21 @@ public class AdicionarGerenteController {
 		String telefone = janelaAddGerente.getTextTelefone().getText();
 		String email = janelaAddGerente.getTextEmail().getText();
 		String login = janelaAddGerente.getTextLogin().getText();
-		String senha = janelaAddGerente.getTextSenha().getText();
-		Usuario usuario = new Usuario(login, senha);
-		
-		Funcionario gerente = new Funcionario(nome, cpf, telefone, email, usuario);
-		Connection conexao;
-		try {
-			conexao = new ConexaoDao().getConnection();
-			AdicionarGerenteDao gerentesDao = new AdicionarGerenteDao(conexao);
-			gerentesDao.addGerente(gerente);
-			JOptionPane.showMessageDialog(null, "Funcionário adicionado com sucesso", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-		} catch(Exception e) {
-			e.printStackTrace();
+		String senha01 = janelaAddGerente.getTextSenha01().getText();
+		String senha02 = janelaAddGerente.getTextSenha02().getText();
+		//FALTA CONSIDERAR O CASO ONDE AS SENHAS SÃO DIFERENTES
+		if(senha01.equals(senha02)) {
+			Usuario usuario = new Usuario(login, senha01);
+			Funcionario gerente = new Funcionario(nome, cpf, telefone, email, usuario);
+			Connection conexao;
+			try {
+				conexao = new ConexaoDao().getConnection();
+				AdicionarGerenteDao gerentesDao = new AdicionarGerenteDao(conexao);
+				gerentesDao.addGerente(gerente);
+				JOptionPane.showMessageDialog(null, "Funcionário adicionado com sucesso", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 	
 	}

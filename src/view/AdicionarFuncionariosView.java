@@ -196,6 +196,8 @@ public class AdicionarFuncionariosView extends JFrame {
 	public void setJanenelaFuncionarios(FuncionariosView janela) {
 		janelaFuncionarios = janela;
 	}
+	
+	
 
 	public AdicionarFuncionariosView getThis() {
 		return this;
