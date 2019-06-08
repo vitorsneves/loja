@@ -32,9 +32,29 @@ public class BuscarDao {
 			produto.setPreco(resultado.getDouble(7));
 			
 			produtos.add(produto);
-		
 		}
 		return produtos;	
-
+	}
+	
+	public ArrayList<Produto> buscarNome(String nome) throws SQLException {
+		ArrayList<Produto> produtos = new ArrayList<Produto>();
+		String sql = "select * from produtos where name like '%?%'";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, nome);
+		ResultSet resultado = statement.executeQuery();
+		while(resultado.next()) {
+			Produto produto = new Produto();
+			produto.setCodigo(resultado.getInt(1));
+			produto.setNome(resultado.getString(2));
+			produto.setFabricante(resultado.getString(3));
+			produto.setTamanho(resultado.getString(4));
+			produto.setTipo(resultado.getString(5));
+			produto.setQuantidade(resultado.getInt(6));
+			produto.setPreco(resultado.getDouble(7));
+			
+			produtos.add(produto);
+			
+		}
+		return produtos;	
 	}
 }
