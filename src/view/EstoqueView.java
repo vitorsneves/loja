@@ -26,7 +26,7 @@ public class EstoqueView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNome;
-	private OpcoesAdicionaisView janelaEstoque;
+	private OpcoesAdicionaisView opcoesAdicionais;
 	private JTable tableProdutos;
 	//private BuscarController buscarController = new BuscarController(this);
 	private JTextField textCodigo;
@@ -77,20 +77,20 @@ public class EstoqueView extends JFrame {
 		textNome.setColumns(10);
 		
 		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(84, 490, 91, 30);
+		btnSair.setBounds(84, 495, 91, 40);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				janelaEstoque.setEnabled(true);
-				janelaEstoque.toFront();
+				opcoesAdicionais.setEnabled(true);
+				getThis().dispose();
 			}
 		});
+		btnSair.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		textCodigo = new JTextField();
 		textCodigo.setBounds(602, 71, 61, 30);
 		contentPane.add(textCodigo);
 		textCodigo.setColumns(10);
-		contentPane.add(btnSair);
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
@@ -98,14 +98,33 @@ public class EstoqueView extends JFrame {
 				//buscarController.preencherResultados();
 			}
 		});
-		btnBuscar.setBounds(688, 71, 91, 30);
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnBuscar.setBounds(673, 71, 106, 30);
+		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
 		contentPane.add(btnBuscar);
 		btnBuscar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			//buscarController.preencherResultados();
 		}
 	});
+		contentPane.add(btnSair);
+		
+		JButton btnAdicionarProduto = new JButton("Adicionar Produto");
+		btnAdicionarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				AdicionarProdutoView view = new AdicionarProdutoView();
+				view.setEstoqueView(getThis());
+				getThis().setVisible(false);
+				view.setVisible(true);
+				opcoesAdicionais.toFront();
+				view.toFront();
+			}
+		});
+		btnAdicionarProduto.setBounds(443, 495, 193, 40);
+		btnAdicionarProduto.setHorizontalAlignment(SwingConstants.LEFT);
+		contentPane.add(btnAdicionarProduto);
+		btnAdicionarProduto.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		JButton btnExibirTodos = new JButton("Exibir tudo");
 		btnExibirTodos.addActionListener(new ActionListener() {
@@ -113,7 +132,8 @@ public class EstoqueView extends JFrame {
 				//buscarController.preencherTudo();
 			}
 		});
-		btnExibirTodos.setBounds(688, 494, 91, 30);
+		btnExibirTodos.setFont(new Font("Arial", Font.PLAIN, 20));
+		btnExibirTodos.setBounds(646, 495, 133, 40);
 		contentPane.add(btnExibirTodos);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -151,10 +171,7 @@ public class EstoqueView extends JFrame {
 		//buscarController.preencherTudo();
 	}
 
-	public void setJanelaEstoque(OpcoesAdicionaisView janelaEstoque) {
-		this.janelaEstoque = janelaEstoque;
-	}
-	
+
 	public JTable getTableProdutos() {
 		return tableProdutos;
 	}
@@ -173,6 +190,18 @@ public class EstoqueView extends JFrame {
 
 	public EstoqueView getThis() {
 		return this;
+	}
+	
+	public void setJanelaEstoque(OpcoesAdicionaisView opcoes) {
+		this.opcoesAdicionais = opcoes;
+	}
+	
+	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
+		this.opcoesAdicionais = opcoes;
+	}
+	
+	public OpcoesAdicionaisView getOpcoesAdicionais() {
+		return opcoesAdicionais;
 	}
 }
 
