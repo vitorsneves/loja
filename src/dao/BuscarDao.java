@@ -30,9 +30,10 @@ public class BuscarDao {
 			produto.setTipo(resultado.getString(5));
 			produto.setQuantidade(resultado.getInt(6));
 			produto.setPreco(resultado.getDouble(7));
+			
+			produtos.add(produto);
+			
 		}
-		System.out.println(produtos.get(2));
-		return produtos;
-		
+		return produtos;	
 	}
 }
