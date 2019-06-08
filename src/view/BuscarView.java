@@ -20,15 +20,17 @@ import javax.swing.table.DefaultTableModel;
 
 import controller.BuscarController;
 import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class BuscarView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textNome;
+	private JTextField textBusca;
 	private MenuPrincipalView janelaMenu;
 	private JTable tableProdutos;
+	JComboBox criterioDeBusca;
 	private BuscarController buscarController = new BuscarController(this);
-	private JTextField textCodigo;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -51,22 +53,10 @@ public class BuscarView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel Nome = new JLabel("Nome do produto");
-		Nome.setFont(new Font("Arial", Font.PLAIN, 14));
-		Nome.setForeground(Color.WHITE);
-		Nome.setBounds(84, 48, 120, 23);
-		contentPane.add(Nome);
-		
-		JLabel lblCodigo = new JLabel("Codigo");
-		lblCodigo.setForeground(Color.WHITE);
-		lblCodigo.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblCodigo.setBounds(602, 52, 73, 19);
-		contentPane.add(lblCodigo);
-		
-		textNome = new JTextField();
-		textNome.setBounds(84, 71, 508, 30);
-		contentPane.add(textNome);
-		textNome.setColumns(10);
+		textBusca = new JTextField();
+		textBusca.setBounds(84, 71, 589, 30);
+		contentPane.add(textBusca);
+		textBusca.setColumns(10);
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.setBounds(84, 490, 91, 30);
@@ -77,11 +67,6 @@ public class BuscarView extends JFrame {
 				janelaMenu.toFront();
 			}
 		});
-		
-		textCodigo = new JTextField();
-		textCodigo.setBounds(602, 71, 61, 30);
-		contentPane.add(textCodigo);
-		textCodigo.setColumns(10);
 		contentPane.add(btnSair);
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -99,13 +84,13 @@ public class BuscarView extends JFrame {
 		}
 	});
 		
-		JButton btnExibirTodos = new JButton("Exibir tudo");
+		JButton btnExibirTodos = new JButton("Exibir todos");
 		btnExibirTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buscarController.preencherTudo();
 			}
 		});
-		btnExibirTodos.setBounds(688, 494, 91, 30);
+		btnExibirTodos.setBounds(629, 494, 150, 30);
 		contentPane.add(btnExibirTodos);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -119,8 +104,27 @@ public class BuscarView extends JFrame {
 			new String[] {
 				"C\u00F3digo", "Nome", "Fabricante", "Tamanho", "Tipo", "Quantidade", "Pre\u00E7o"
 			}
-		));
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		tableProdutos.getColumnModel().getColumn(0).setPreferredWidth(43);
+		tableProdutos.getColumnModel().getColumn(1).setPreferredWidth(204);
+		tableProdutos.getColumnModel().getColumn(2).setPreferredWidth(83);
+		tableProdutos.getColumnModel().getColumn(3).setPreferredWidth(54);
+		tableProdutos.getColumnModel().getColumn(4).setPreferredWidth(32);
+		tableProdutos.getColumnModel().getColumn(5).setPreferredWidth(66);
+		tableProdutos.getColumnModel().getColumn(6).setPreferredWidth(55);
 		scrollPane.setViewportView(tableProdutos);
+		
+		criterioDeBusca = new JComboBox();
+		criterioDeBusca.setModel(new DefaultComboBoxModel(new String[] {"Nome do produto", "C\u00F3digo do produto"}));
+		criterioDeBusca.setBounds(84, 43, 150, 20);
+		contentPane.add(criterioDeBusca);
 		
 		JLabel fundo02 = new JLabel("");
 		fundo02.setBounds(0, 32, 818, 523);
@@ -145,17 +149,17 @@ public class BuscarView extends JFrame {
 	public JTable getTableProdutos() {
 		return tableProdutos;
 	}
-
-	public JTextField getTextCodigo() {
-		return textCodigo;
+	
+	public JComboBox getCriterioDeBusca() {
+		return criterioDeBusca;
 	}
 
 	public void setTableProdutos(JTable tableProdutos) {
 		this.tableProdutos = tableProdutos;
 	}
 
-	public JTextField getTextNome() {
-		return textNome;
+	public JTextField getTextBusca() {
+		return textBusca;
 	}
 
 	public BuscarView getThis() {
