@@ -13,6 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controller.AdicionarFuncionariosController;
+import controller.AdicionarGerenteController;
+
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 
@@ -20,13 +24,14 @@ public class AdicionarGerenteView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textCPF;
+	private JTextField textCpf;
 	private JTextField textTelefone;
 	private JTextField textEmail;
 	private JTextField textLogin;
 	private JPasswordField Senha;
 	private JPasswordField ConfirmarSenha;
 	private GerenteView gerenteView;
+	private AdicionarGerenteController gerenteControlador;
 
 
 	/**
@@ -80,11 +85,11 @@ public class AdicionarGerenteView extends JFrame {
 		cpf.setBounds(10, 178, 82, 35);
 		contentPane.add(cpf);
 		
-		textCPF = new JTextField();
-		textCPF.setFont(new Font("Arial", Font.PLAIN, 13));
-		textCPF.setColumns(10);
-		textCPF.setBounds(11, 208, 362, 29);
-		contentPane.add(textCPF);
+		textCpf = new JTextField();
+		textCpf.setFont(new Font("Arial", Font.PLAIN, 13));
+		textCpf.setColumns(10);
+		textCpf.setBounds(11, 208, 362, 29);
+		contentPane.add(textCpf);
 		
 		
 		
@@ -159,7 +164,7 @@ public class AdicionarGerenteView extends JFrame {
 				JButton btnNewButton_1 = new JButton("Confirmar");
 				btnNewButton_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						funcionariosControlador.adicionarFuncionario();
+						gerenteControlador.adicionarGerente();
 					}
 				});
 				btnNewButton_1.setBounds(284, 610, 102, 23);
