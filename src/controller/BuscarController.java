@@ -40,7 +40,7 @@ public void preencherResultados(String nome) {
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new BuscarDao(conexao);
-			ArrayList<Produto> produtos = buscarDao.buscarNome(janelaBuscar.getTextName());
+			ArrayList<Produto> produtos = buscarDao.buscarNome(janelaBuscar.getTextNome().getText());
 			helper.preencher(produtos);
 		} 
 		catch(Exception e) {
