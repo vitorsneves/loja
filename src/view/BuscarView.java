@@ -85,6 +85,11 @@ public class BuscarView extends JFrame {
 		contentPane.add(btnSair);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				buscarController.preencherResultados();
+			}
+		});
 		btnBuscar.setBounds(688, 71, 91, 30);
 		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		contentPane.add(btnBuscar);
@@ -134,6 +139,10 @@ public class BuscarView extends JFrame {
 	
 	public JTable getTableProdutos() {
 		return tableProdutos;
+	}
+
+	public JTextField getTextCodigo() {
+		return textCodigo;
 	}
 
 	public void setTableProdutos(JTable tableProdutos) {

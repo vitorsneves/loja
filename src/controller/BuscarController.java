@@ -35,12 +35,13 @@ public class BuscarController {
 	
 	//método chamado quando o botão busca é apertado
 	//tabela será preenchida com os resultados da pesquisa
-public void preencherResultados(String nome) {
+public void preencherResultados() {
 		Connection conexao;
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new BuscarDao(conexao);
-			ArrayList<Produto> produtos = buscarDao.buscarNome(janelaBuscar.getTextNome().getText());
+			ArrayList<Produto> produtos = buscarDao.buscarNome(janelaBuscar.getTextNome().getText(),
+					Integer.parseInt(janelaBuscar.getTextCodigo().getText()));
 			helper.preencher(produtos);
 		} 
 		catch(Exception e) {
