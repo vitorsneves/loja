@@ -29,6 +29,7 @@ public class BuscarHelper {
                 produto.getQuantidade(),
                 produto.getPreco(),
 			
+
 			});
 		}
 	}

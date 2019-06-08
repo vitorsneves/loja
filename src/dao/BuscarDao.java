@@ -20,8 +20,7 @@ public class BuscarDao {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		String sql = "select * from produtos";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.execute();
-		ResultSet resultado = statement.getResultSet();
+		ResultSet resultado = statement.executeQuery();
 		while(resultado.next()) {
 			Produto produto = new Produto();
 			produto.setCodigo(resultado.getInt(1));
@@ -32,6 +31,8 @@ public class BuscarDao {
 			produto.setQuantidade(resultado.getInt(6));
 			produto.setPreco(resultado.getDouble(7));
 		}
+		System.out.println(produtos.get(2));
 		return produtos;
+		
 	}
 }

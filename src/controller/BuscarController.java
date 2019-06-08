@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.sql.Connection;
@@ -43,10 +42,10 @@ public class BuscarController {
 			BuscarDao buscarDao = new BuscarDao(conexao);
 			ArrayList<Produto> produtos = buscarDao.buscarNome(String nome);
 			helper.preencher(produtos);
-		} catch(Exception e) {
+		} 
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	} 
 */	
 }
-
