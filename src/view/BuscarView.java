@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import controller.BuscarController;
+import java.awt.Color;
 
 public class BuscarView extends JFrame {
 
@@ -50,8 +51,20 @@ public class BuscarView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel Nome = new JLabel("Nome do produto");
+		Nome.setFont(new Font("Arial", Font.PLAIN, 14));
+		Nome.setForeground(Color.WHITE);
+		Nome.setBounds(84, 48, 120, 23);
+		contentPane.add(Nome);
+		
+		JLabel lblCodigo = new JLabel("Codigo");
+		lblCodigo.setForeground(Color.WHITE);
+		lblCodigo.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblCodigo.setBounds(602, 52, 73, 19);
+		contentPane.add(lblCodigo);
+		
 		textNome = new JTextField();
-		textNome.setBounds(81, 71, 286, 30);
+		textNome.setBounds(84, 71, 508, 30);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 		
@@ -66,7 +79,7 @@ public class BuscarView extends JFrame {
 		});
 		
 		textCodigo = new JTextField();
-		textCodigo.setBounds(377, 71, 286, 30);
+		textCodigo.setBounds(602, 71, 61, 30);
 		contentPane.add(textCodigo);
 		textCodigo.setColumns(10);
 		contentPane.add(btnSair);
