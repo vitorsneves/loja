@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -57,6 +59,15 @@ public class BuscarView extends JFrame {
 		textBusca.setBounds(84, 71, 589, 30);
 		contentPane.add(textBusca);
 		textBusca.setColumns(10);
+		textBusca.addKeyListener(new KeyAdapter() {
+
+			@Override
+            public void keyPressed(KeyEvent evt) {
+				if(evt.getKeyCode() ==  KeyEvent.VK_ENTER) {
+					buscarController.preencherResultados();
+                }
+            }
+        });
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.setBounds(84, 490, 91, 30);
