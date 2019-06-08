@@ -24,6 +24,8 @@ import controller.BuscarController;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class BuscarView extends JFrame {
 
@@ -31,8 +33,10 @@ public class BuscarView extends JFrame {
 	private JTextField textBusca;
 	private MenuPrincipalView janelaMenu;
 	private JTable tableProdutos;
-	JComboBox criterioDeBusca;
+	private JComboBox criterioDeBusca;
 	private BuscarController buscarController = new BuscarController(this);
+	private JButton btnSair;
+	private JButton btnNovaCompra;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -69,7 +73,7 @@ public class BuscarView extends JFrame {
             }
         });
 		
-		JButton btnSair = new JButton("Sair");
+		btnSair = new JButton("Sair");
 		btnSair.setBounds(84, 490, 91, 30);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,13 +108,14 @@ public class BuscarView extends JFrame {
 		btnExibirTodos.setBounds(455, 490, 150, 30);
 		contentPane.add(btnExibirTodos);
 		
-		JButton btnNovaCompra = new JButton("Efetuar nova venda");
+		btnNovaCompra = new JButton("Efetuar nova venda");
 		btnNovaCompra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CarrinhoView janelaCarrinho = new CarrinhoView();
 				janelaCarrinho.setJanelaBuscar(getThis());
-				getThis().setEnabled(false);
 				janelaCarrinho.setVisible(true);
+				btnSair.setEnabled(false);
+				btnNovaCompra.setEnabled(false);
 			}
 		});
 		btnNovaCompra.setBounds(615, 490, 162, 30);
@@ -169,6 +174,10 @@ public class BuscarView extends JFrame {
 		this.janelaMenu = janelaMenu;
 	}
 	
+	public MenuPrincipalView getJanelaMenu() {
+		return janelaMenu;
+	}
+
 	public JTable getTableProdutos() {
 		return tableProdutos;
 	}
@@ -188,4 +197,22 @@ public class BuscarView extends JFrame {
 	public BuscarView getThis() {
 		return this;
 	}
+
+	public JButton getBtnSair() {
+		return btnSair;
+	}
+
+	public void setBtnSair(JButton btnSair) {
+		this.btnSair = btnSair;
+	}
+
+	public JButton getBtnNovaCompra() {
+		return btnNovaCompra;
+	}
+
+	public void setBtnNovaCompra(JButton btnNovaCompra) {
+		this.btnNovaCompra = btnNovaCompra;
+	}
+	
+	
 }

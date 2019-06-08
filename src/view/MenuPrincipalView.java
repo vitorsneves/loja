@@ -46,21 +46,29 @@ public class MenuPrincipalView extends JFrame {
 		JLabel titulo = new JLabel("MENU");
 		titulo.setForeground(Color.WHITE);
 		titulo.setFont(new Font("Arial", Font.BOLD, 60));
-		titulo.setBounds(544, 59, 189, 109);
+		titulo.setBounds(562, 65, 189, 109);
 		contentPane.add(titulo);
 		
-		JButton btnNovaCompra = new JButton("Nova compra");
+		JButton btnNovaCompra = new JButton("Pesquisar no estoque");
+		btnNovaCompra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { 
+				BuscarView janelaDeBusca = new BuscarView();
+				janelaDeBusca.setJanelaMenu(getThis());
+				setEnabled(false);
+				janelaDeBusca.setVisible(true);
+			}
+		});
 		btnNovaCompra.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNovaCompra.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnNovaCompra.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/dinheiro.png")));
-		btnNovaCompra.setBounds(156, 202, 415, 82);
+		btnNovaCompra.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/pesquisarEmEstoque.png")));
+		btnNovaCompra.setBounds(156, 216, 442, 82);
 		contentPane.add(btnNovaCompra);
 		
 		JButton btnAdicionarCliente = new JButton("Adicionar cliente");
 		btnAdicionarCliente.setHorizontalAlignment(SwingConstants.LEFT);
 		btnAdicionarCliente.setFont(new Font("Arial", Font.PLAIN, 30));
 		btnAdicionarCliente.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/cliente.png")));
-		btnAdicionarCliente.setBounds(156, 351, 415, 82);
+		btnAdicionarCliente.setBounds(156, 407, 442, 82);
 		btnAdicionarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CriarClienteView clienteView = new CriarClienteView();
@@ -70,36 +78,23 @@ public class MenuPrincipalView extends JFrame {
 			}
 		});
 		contentPane.add(btnAdicionarCliente);
-
-		//botão procurar em estoque
-		//interage com a classe BuscarView
-		JButton btnBuscarEstoque = new JButton("Procurar em estoque");
-		btnBuscarEstoque.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { 
-				BuscarView janelaDeBusca = new BuscarView();
-				janelaDeBusca.setJanelaMenu(getThis());
-				setEnabled(false);
-				janelaDeBusca.setVisible(true);
+		
+		JButton btnEstatisticas = new JButton("Clientes cadastrados");
+		btnEstatisticas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnBuscarEstoque.setHorizontalAlignment(SwingConstants.LEFT);
-		btnBuscarEstoque.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnBuscarEstoque.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estoque.png")));
-		btnBuscarEstoque.setBounds(156, 499, 415, 82);
-		contentPane.add(btnBuscarEstoque);
-		
-		JButton btnEstatisticas = new JButton("Estat\u00EDsticas");
 		btnEstatisticas.setHorizontalAlignment(SwingConstants.LEFT);
 		btnEstatisticas.setFont(new Font("Arial", Font.PLAIN, 30));
-		btnEstatisticas.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/estatisticas.png")));
-		btnEstatisticas.setBounds(705, 202, 415, 82);
+		btnEstatisticas.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/clientesCadastrados.png")));
+		btnEstatisticas.setBounds(705, 216, 442, 82);
 		contentPane.add(btnEstatisticas);
 		
 		BtnOpcoesAdicionais = new JButton("Op\u00E7\u00F5es adicionais");
 		BtnOpcoesAdicionais.setHorizontalAlignment(SwingConstants.LEFT);
 		BtnOpcoesAdicionais.setFont(new Font("Arial", Font.PLAIN, 30));
 		BtnOpcoesAdicionais.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/chave.png")));
-		BtnOpcoesAdicionais.setBounds(705, 351, 415, 82);
+		BtnOpcoesAdicionais.setBounds(705, 407, 442, 82);
 		contentPane.add(BtnOpcoesAdicionais);
 		BtnOpcoesAdicionais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -25,6 +25,7 @@ import java.awt.Color;
 public class FormaDePagamentoView extends JFrame {
 
 	private JPanel contentPane;
+	private CarrinhoView janelaCarrinho;
 
 	/**
 	 * Launch the application.
@@ -62,20 +63,44 @@ public class FormaDePagamentoView extends JFrame {
 		JRadioButton dinheiroRadioButton = new JRadioButton("Dinheiro");
 		dinheiroRadioButton.setFont(new Font("Arial", Font.PLAIN, 14));
 		dinheiroRadioButton.setForeground(Color.WHITE);
-		dinheiroRadioButton.setBounds(41, 104, 109, 23);
+		dinheiroRadioButton.setBounds(35, 96, 109, 23);
 		dinheiroRadioButton.setContentAreaFilled(false);
 		contentPane.add(dinheiroRadioButton);
 		
 		JRadioButton cartaoRadioButton = new JRadioButton("Cart\u00E3o de cr\u00E9dito");
 		cartaoRadioButton.setForeground(Color.WHITE);
 		cartaoRadioButton.setFont(new Font("Arial", Font.PLAIN, 14));
-		cartaoRadioButton.setBounds(41, 63, 139, 23);
+		cartaoRadioButton.setBounds(35, 63, 139, 23);
 		cartaoRadioButton.setContentAreaFilled(false);
 		contentPane.add(cartaoRadioButton);
 		
 		JButton btnNewButton = new JButton("Confirmar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PagamentoFinalView janelaPagamentoFinal = new PagamentoFinalView();
+				janelaPagamentoFinal.setJanelaFormaDePagamento(getThis());
+				janelaPagamentoFinal.setVisible(true);
+				getThis().setVisible(false);
+				getThis().janelaCarrinho.getJanelaBuscar().getJanelaMenu().toFront();
+				janelaPagamentoFinal.toFront();
+			}
+		});
 		btnNewButton.setBounds(181, 138, 119, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getThis().dispose();
+				janelaCarrinho.getJanelaBuscar().getJanelaMenu().toFront();
+				janelaCarrinho.getJanelaBuscar().toFront();
+				janelaCarrinho.getJanelaBuscar().setVisible(true);
+				janelaCarrinho.toFront();
+				janelaCarrinho.setVisible(true);
+			}
+		});
+		btnVoltar.setBounds(25, 138, 119, 23);
+		contentPane.add(btnVoltar);
 		
 		JLabel fundoEscuro = new JLabel("");
 		fundoEscuro.setBounds(-35, 11, 350, 165);
@@ -86,5 +111,17 @@ public class FormaDePagamentoView extends JFrame {
 		fundoDeDinheiro.setBounds(0, 0, 333, 195);
 		fundoDeDinheiro.setIcon(new ImageIcon(LoginView.class.getResource("/fundoDeDinheiro.jpg")));
 		contentPane.add(fundoDeDinheiro);
+	}
+
+	public CarrinhoView getJanelaCarrinho() {
+		return janelaCarrinho;
+	}
+
+	public void setJanelaCarrinho(CarrinhoView janelaCarrinho) {
+		this.janelaCarrinho = janelaCarrinho;
+	}
+	
+	public FormaDePagamentoView getThis() {
+		return this;
 	}
 }
