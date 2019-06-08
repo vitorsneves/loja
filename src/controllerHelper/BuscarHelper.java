@@ -30,7 +30,6 @@ public class BuscarHelper {
                 produto.getPreco(),
 			});
 		}
-		
 	}
 	
 	public void apagarTabela() {

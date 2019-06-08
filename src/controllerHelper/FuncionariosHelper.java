@@ -26,4 +26,9 @@ public class FuncionariosHelper {
 			});
 		}
 	}
+	
+	public void apagarTabela() {
+		DefaultTableModel tableModel = (DefaultTableModel) janelaFuncionarios.getTableFuncionarios().getModel();
+		tableModel.setNumRows(0);
+	}
 }

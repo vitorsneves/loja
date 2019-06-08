@@ -3,6 +3,12 @@ package model;
 public class Gerente extends Pessoa {
 	private double salario;
 	private Usuario usuario;
+	
+	public Gerente() {
+		super();
+		setSalario(5000);
+		setUsuario(new Usuario());
+	}
 
 	public Gerente(String nome, String cpf, String telefone, String email, Usuario usuario) {
 		super(nome, cpf, telefone, email);

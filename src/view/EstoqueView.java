@@ -85,6 +85,7 @@ public class EstoqueView extends JFrame {
 				getThis().dispose();
 			}
 		});
+		btnSair.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		textCodigo = new JTextField();
 		textCodigo.setBounds(602, 71, 61, 30);
@@ -97,8 +98,8 @@ public class EstoqueView extends JFrame {
 				//buscarController.preencherResultados();
 			}
 		});
-		btnBuscar.setBounds(688, 71, 91, 30);
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnBuscar.setBounds(673, 71, 106, 30);
+		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
 		contentPane.add(btnBuscar);
 		btnBuscar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -120,10 +121,10 @@ public class EstoqueView extends JFrame {
 				view.toFront();
 			}
 		});
-		btnAdicionarProduto.setBounds(530, 495, 133, 40);
+		btnAdicionarProduto.setBounds(443, 495, 193, 40);
 		btnAdicionarProduto.setHorizontalAlignment(SwingConstants.LEFT);
-		btnAdicionarProduto.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/productIcone32.png")));
 		contentPane.add(btnAdicionarProduto);
+		btnAdicionarProduto.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		JButton btnExibirTodos = new JButton("Exibir tudo");
 		btnExibirTodos.addActionListener(new ActionListener() {
@@ -131,7 +132,8 @@ public class EstoqueView extends JFrame {
 				//buscarController.preencherTudo();
 			}
 		});
-		btnExibirTodos.setBounds(688, 495, 91, 40);
+		btnExibirTodos.setFont(new Font("Arial", Font.PLAIN, 20));
+		btnExibirTodos.setBounds(646, 495, 133, 40);
 		contentPane.add(btnExibirTodos);
 		
 		JScrollPane scrollPane = new JScrollPane();
