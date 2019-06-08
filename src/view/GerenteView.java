@@ -163,6 +163,9 @@ public class GerenteView extends JFrame {
 		return this;
 	}
 	
+
+	
+	
 	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
 		this.opcoesAdicionais = opcoes;
 	}
