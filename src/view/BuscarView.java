@@ -101,8 +101,20 @@ public class BuscarView extends JFrame {
 				buscarController.preencherTudo();
 			}
 		});
-		btnExibirTodos.setBounds(629, 494, 150, 30);
+		btnExibirTodos.setBounds(455, 490, 150, 30);
 		contentPane.add(btnExibirTodos);
+		
+		JButton btnNovaCompra = new JButton("Efetuar nova venda");
+		btnNovaCompra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CarrinhoView janelaCarrinho = new CarrinhoView();
+				janelaCarrinho.setJanelaBuscar(getThis());
+				getThis().setEnabled(false);
+				janelaCarrinho.setVisible(true);
+			}
+		});
+		btnNovaCompra.setBounds(615, 490, 162, 30);
+		contentPane.add(btnNovaCompra);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(84, 135, 695, 344);
