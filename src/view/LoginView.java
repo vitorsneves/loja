@@ -44,9 +44,7 @@ public class LoginView extends JFrame {
 		this.textSenha = textSenha;
 	}
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -60,9 +58,7 @@ public class LoginView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public LoginView() {
 		//controller = new LoginController(this);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

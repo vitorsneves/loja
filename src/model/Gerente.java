@@ -6,7 +6,6 @@ public class Gerente extends Pessoa {
 	
 	public Gerente() {
 		super();
-		setSalario(5000);
 		setUsuario(new Usuario());
 	}
 

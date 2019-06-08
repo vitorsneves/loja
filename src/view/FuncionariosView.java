@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class FuncionariosView extends JFrame {
 
@@ -47,8 +48,8 @@ public class FuncionariosView extends JFrame {
 	}
 
 	public FuncionariosView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1130, 720);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setBounds(100, 0, 1130, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -56,8 +57,8 @@ public class FuncionariosView extends JFrame {
 		
 		criterioDeBusca = new JComboBox();
 		criterioDeBusca.setFont(new Font("Arial", Font.PLAIN, 14));
-		criterioDeBusca.setModel(new DefaultComboBoxModel(new String[] {"Nome do gerente", "Cpf do gerente"}));
-		criterioDeBusca.setBounds(29, 19, 137, 23);
+		criterioDeBusca.setModel(new DefaultComboBoxModel(new String[] {"PESQUISAR POR NOME", "PESQUISAR POR CPF"}));
+		criterioDeBusca.setBounds(29, 19, 190, 23);
 		contentPane.add(criterioDeBusca);
 		
 		textBusca = new JTextField();
@@ -73,6 +74,7 @@ public class FuncionariosView extends JFrame {
 		btnBuscar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				funcionarioController.preencherResultados();
 			}
 		});
 		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -85,6 +87,14 @@ public class FuncionariosView extends JFrame {
 		contentPane.add(scrollGerentes);
 		
 		tableFuncionarios = new JTable();
+		tableFuncionarios.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null},
+			},
+			new String[] {
+				"Nome", "CPF", "Email", "Telefone", "Sal\u00E1rio", "Comiss\u00E3o"
+			}
+		));
 		scrollGerentes.setViewportView(tableFuncionarios);
 		
 		//botão adicionar

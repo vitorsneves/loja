@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -57,6 +59,15 @@ public class BuscarView extends JFrame {
 		textBusca.setBounds(84, 71, 589, 30);
 		contentPane.add(textBusca);
 		textBusca.setColumns(10);
+		textBusca.addKeyListener(new KeyAdapter() {
+
+			@Override
+            public void keyPressed(KeyEvent evt) {
+				if(evt.getKeyCode() ==  KeyEvent.VK_ENTER) {
+					buscarController.preencherResultados();
+                }
+            }
+        });
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.setBounds(84, 490, 91, 30);
@@ -90,8 +101,20 @@ public class BuscarView extends JFrame {
 				buscarController.preencherTudo();
 			}
 		});
-		btnExibirTodos.setBounds(629, 494, 150, 30);
+		btnExibirTodos.setBounds(455, 490, 150, 30);
 		contentPane.add(btnExibirTodos);
+		
+		JButton btnNovaCompra = new JButton("Efetuar nova venda");
+		btnNovaCompra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CarrinhoView janelaCarrinho = new CarrinhoView();
+				janelaCarrinho.setJanelaBuscar(getThis());
+				getThis().setEnabled(false);
+				janelaCarrinho.setVisible(true);
+			}
+		});
+		btnNovaCompra.setBounds(615, 490, 162, 30);
+		contentPane.add(btnNovaCompra);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(84, 135, 695, 344);
