@@ -22,8 +22,9 @@ public class GerenteView extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private JTextField textField;
+	private JTextField textNome;
 	private OpcoesAdicionaisView opcoesAdicionais;
+	private JTextField textBuscarCPF;
 	/**
 	 * Launch the application.
 	 */
@@ -45,14 +46,14 @@ public class GerenteView extends JFrame {
 	 */
 	public GerenteView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1130, 682);
+		setBounds(100, 100, 1130, 717);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(29, 70, 1062, 469);
+		scrollPane.setBounds(29, 123, 1062, 469);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -61,11 +62,12 @@ public class GerenteView extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		scrollPane.setColumnHeaderView(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setBounds(29, 10, 899, 37);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNome = new JTextField();
+		textNome.setBounds(29, 53, 694, 37);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
 		
+		//botão BUSCAR
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBuscar.addActionListener(new ActionListener() {
@@ -74,7 +76,7 @@ public class GerenteView extends JFrame {
 		});
 		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btnBuscar.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/lupa32.png")));
-		btnBuscar.setBounds(938, 10, 153, 37);
+		btnBuscar.setBounds(938, 53, 153, 37);
 		contentPane.add(btnBuscar);
 		
 		//Botão adicionar
@@ -93,7 +95,7 @@ public class GerenteView extends JFrame {
 		});
 		button.setFont(new Font("Arial", Font.PLAIN, 20));
 		button.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/addGerente32.png")));
-		button.setBounds(918, 586, 173, 37);
+		button.setBounds(918, 633, 173, 37);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Remover");
@@ -104,7 +106,7 @@ public class GerenteView extends JFrame {
 		});
 		button_1.setFont(new Font("Arial", Font.PLAIN, 20));
 		button_1.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/removerGerente32.png")));
-		button_1.setBounds(731, 586, 177, 37);
+		button_1.setBounds(733, 633, 177, 37);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("Editar");
@@ -115,7 +117,7 @@ public class GerenteView extends JFrame {
 		});
 		button_2.setFont(new Font("Arial", Font.PLAIN, 20));
 		button_2.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/engrenagem32.png")));
-		button_2.setBounds(568, 586, 153, 37);
+		button_2.setBounds(570, 633, 153, 37);
 		contentPane.add(button_2);
 		
 		//Botão Voltar
@@ -131,8 +133,23 @@ public class GerenteView extends JFrame {
 		});
 		button_3.setFont(new Font("Arial", Font.PLAIN, 20));
 		button_3.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/voltar32.png")));
-		button_3.setBounds(29, 586, 153, 37);
+		button_3.setBounds(29, 633, 153, 37);
 		contentPane.add(button_3);
+		
+		textBuscarCPF = new JTextField();
+		textBuscarCPF.setBounds(733, 53, 195, 37);
+		contentPane.add(textBuscarCPF);
+		textBuscarCPF.setColumns(10);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(29, 20, 129, 33);
+		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
+		contentPane.add(lblNome);
+		
+		JLabel lblCpf = new JLabel("CPF");
+		lblCpf.setBounds(733, 20, 103, 33);
+		lblCpf.setFont(new Font("Arial", Font.PLAIN, 20));
+		contentPane.add(lblCpf);
 		
 	}
 
@@ -147,5 +164,4 @@ public class GerenteView extends JFrame {
 	public OpcoesAdicionaisView getOpcoesAdicionais() {
 		return opcoesAdicionais;
 	}
-	
 }
