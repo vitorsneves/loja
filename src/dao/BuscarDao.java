@@ -38,9 +38,9 @@ public class BuscarDao {
 	
 	public ArrayList<Produto> buscarNome(String nome) throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
-		String sql = "select * from produtos where name like '%?%'";
+		String sql =  "select * from produtos where nome like '%" + nome + "%'";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, nome);
+		//statement.setString(1, nome);
 		ResultSet resultado = statement.executeQuery();
 		while(resultado.next()) {
 			Produto produto = new Produto();
@@ -55,6 +55,7 @@ public class BuscarDao {
 			produtos.add(produto);
 			
 		}
-		return produtos;	
+		
+		return produtos;		
 	}
 }

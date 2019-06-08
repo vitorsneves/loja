@@ -88,6 +88,11 @@ public class BuscarView extends JFrame {
 		btnBuscar.setBounds(688, 71, 91, 30);
 		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		contentPane.add(btnBuscar);
+		btnBuscar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			buscarController.preencherResultados();
+		}
+	});
 		
 		JButton btnExibirTodos = new JButton("Exibir tudo");
 		btnExibirTodos.addActionListener(new ActionListener() {
