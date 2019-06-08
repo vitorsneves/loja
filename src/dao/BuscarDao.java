@@ -36,9 +36,16 @@ public class BuscarDao {
 		return produtos;	
 	}
 	
-	public ArrayList<Produto> buscarProduto(String nome, int codigo) throws SQLException {
+	public ArrayList<Produto> buscarProduto(int criterioDeBusca, String informacaoDigitada) throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
-		String sql =  "select * from produtos where nome like '%"+ nome +"%' or codigo like %"+ codigo +"%";
+		String sql;
+		if(criterioDeBusca == 1) {
+			sql =  "select * from produtos where nome like '%"+ informacaoDigitada +"%'";
+		}
+		else {
+			int codigo = Integer.parseInt(informacaoDigitada);
+			sql =  "select * from produtos where nome like %"+ codigo +"%";
+		}
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
 		while(resultado.next()) {

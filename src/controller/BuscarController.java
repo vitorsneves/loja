@@ -41,8 +41,7 @@ public void preencherResultados() {
 		try {
 			conexao = new ConexaoDao().getConnection();
 			BuscarDao buscarDao = new BuscarDao(conexao);
-			ArrayList<Produto> produtos = buscarDao.buscarProduto(janelaBuscar.getTextNome().getText(),
-					Integer.parseInt(janelaBuscar.getTextCodigo().getText()));
+			ArrayList<Produto> produtos = buscarDao.buscarProduto(janelaBuscar.getCriterioDeBusca().getSelectedIndex(), janelaBuscar.getTextBusca().getText());
 			helper.preencher(produtos);
 		} 
 		catch(SQLSyntaxErrorException e) {
