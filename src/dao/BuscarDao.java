@@ -39,12 +39,12 @@ public class BuscarDao {
 	public ArrayList<Produto> buscarProduto(int criterioDeBusca, String informacaoDigitada) throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		String sql;
-		if(criterioDeBusca == 1) {
+		if(criterioDeBusca == 0) {
 			sql =  "select * from produtos where nome like '%"+ informacaoDigitada +"%'";
 		}
 		else {
 			int codigo = Integer.parseInt(informacaoDigitada);
-			sql =  "select * from produtos where nome like %"+ codigo +"%";
+			sql =  "select * from produtos where codigo ="+codigo+"";
 		}
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
