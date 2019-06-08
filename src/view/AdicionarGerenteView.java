@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import controller.AdicionarFuncionariosController;
 import controller.AdicionarGerenteController;
 
+
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 
@@ -34,9 +35,6 @@ public class AdicionarGerenteView extends JFrame {
 	private AdicionarGerenteController gerenteControlador;
 
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,9 +48,6 @@ public class AdicionarGerenteView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public AdicionarGerenteView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 50, 411, 680);
@@ -91,8 +86,6 @@ public class AdicionarGerenteView extends JFrame {
 		textCpf.setBounds(11, 208, 362, 29);
 		contentPane.add(textCpf);
 		
-		
-		
 		JLabel telefone = new JLabel("(DDD) Telefone *");
 		telefone.setForeground(Color.WHITE);
 		telefone.setFont(new Font("Arial", Font.BOLD, 20));
@@ -104,8 +97,6 @@ public class AdicionarGerenteView extends JFrame {
 		textTelefone.setColumns(10);
 		textTelefone.setBounds(10, 279, 362, 29);
 		contentPane.add(textTelefone);
-		
-		
 		
 		JLabel email = new JLabel("E-mail *");
 		email.setForeground(Color.WHITE);
@@ -161,46 +152,52 @@ public class AdicionarGerenteView extends JFrame {
 		label_3.setBounds(25, -25, 158, 112);
 		contentPane.add(label_3);
 				
-				JButton btnNewButton_1 = new JButton("Confirmar");
-				btnNewButton_1.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						gerenteControlador.adicionarGerente();
-					}
-				});
-				btnNewButton_1.setBounds(284, 610, 102, 23);
-				contentPane.add(btnNewButton_1);
-				
-				JButton btnVoltar = new JButton("Voltar");
-				btnVoltar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-
-						dispose();
-						gerenteView.setVisible(true);
-						gerenteView.getOpcoesAdicionais().toFront();
-						gerenteView.toFront();
-					}
-				});
-				btnVoltar.setBounds(185, 610, 89, 23);
-				contentPane.add(btnVoltar);
-				
-				textField = new JTextField();
-				textField.setBounds(10, 146, 363, 29);
-				contentPane.add(textField);
-				textField.setColumns(10);
+		JButton btnNewButton_1 = new JButton("Confirmar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gerenteControlador.adicionarGerente();
+			}
+		});
+		btnNewButton_1.setBounds(284, 610, 102, 23);
+		contentPane.add(btnNewButton_1);
 		
-				JLabel fundo = new JLabel("");
-				fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/Users-Administrator-icon.png")));
-				fundo.setBounds(35, 25, 89, 74);
-				contentPane.add(fundo);
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				dispose();
+				gerenteView.setVisible(true);
+				gerenteView.getOpcoesAdicionais().toFront();
+				gerenteView.toFront();
+			}
+		});
+		btnVoltar.setBounds(185, 610, 89, 23);
+		contentPane.add(btnVoltar);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 146, 363, 29);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 146, 363, 29);
+		contentPane.add(textField);
+		textField.setColumns(10);
+
+		JLabel fundo = new JLabel("");
+		fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/Users-Administrator-icon.png")));
+		fundo.setBounds(35, 25, 89, 74);
+		contentPane.add(fundo);
 		
 		JLabel Fundo = new JLabel("");
 		Fundo.setBounds(0, 0, 397, 633);
 		Fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/FundoAdicionarGerente1.jpg")));
 		contentPane.add(Fundo);
 	}
-	
+
 	public void setGerenteView(GerenteView opcoes) {
 		this.gerenteView = opcoes;
 	}
 	
 }
+

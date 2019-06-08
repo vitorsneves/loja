@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import controllerHelper.BuscarHelper;
+import dao.BuscarDao;
 import dao.ConexaoDao;
+import model.Produto;
 import view.BuscarView;
 
 public class BuscarController {
@@ -23,8 +25,8 @@ public class BuscarController {
 		Connection conexao;
 		try {
 			conexao = new ConexaoDao().getConnection();
-			BuscarDao buscarDao = new buscarDao(conexao);
-			ArrayList<produto> produtos = new buscaDao.buscarTudo();
+			BuscarDao buscarDao = new BuscarDao(conexao);
+			ArrayList<Produto> produtos = buscarDao.buscarTudo();
 			helper.preencher(produtos);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -33,15 +35,17 @@ public class BuscarController {
 	
 	//método chamado quando o botão busca é apertado
 	//tabela será preenchida com os resultados da pesquisa
-	public void preencherResultados(String nome) {
+/*	public void preencherResultados(String nome) {
 		Connection conexao;
 		try {
 			conexao = new ConexaoDao().getConnection();
-			BuscarDao buscarDao = new buscarDao(conexao);
-			ArrayList<produto> produtos = new buscaDao.buscarNome(String nome);
+			BuscarDao buscarDao = new BuscarDao(conexao);
+			ArrayList<Produto> produtos = buscarDao.buscarNome(String nome);
 			helper.preencher(produtos);
-		} catch(Exception e) {
+		} 
+		catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
+	} 
+*/	
 }

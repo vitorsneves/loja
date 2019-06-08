@@ -19,9 +19,7 @@ public class FuncionariosView extends JFrame {
 	private JTextField textField_1;
 	private OpcoesAdicionaisView opcoesAdicionais;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,9 +33,6 @@ public class FuncionariosView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public FuncionariosView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 646, 365);
@@ -62,6 +57,9 @@ public class FuncionariosView extends JFrame {
 				view.setJanenelaFuncionarios(getThis());
 				getThis().setVisible(false);
 				view.setVisible(true);
+				opcoesAdicionais.toFront();
+				view.toFront();
+				
 			}
 		});
 		btnAdicionar.setBounds(520, 287, 89, 23);
@@ -93,6 +91,10 @@ public class FuncionariosView extends JFrame {
 	
 	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
 		this.opcoesAdicionais = opcoes;
+	}
+	
+	public OpcoesAdicionaisView getOpcoesAdicionais () {
+		return opcoesAdicionais;
 	}
 	
 	public FuncionariosView getThis() {
