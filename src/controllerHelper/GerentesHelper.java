@@ -20,7 +20,11 @@ public class GerentesHelper {
 		tableModel.setNumRows(0);
 		for(Gerente gerente : gerentes) {
 			tableModel.addRow(new Object[] {
-				
+					gerente.getNome(),
+	                gerente.getCpf(),
+	                gerente.getEmail(),
+	                gerente.getTelefone(),
+	                gerente.getSalario(),
 			});
 		}
 	}

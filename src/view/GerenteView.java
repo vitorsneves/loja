@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 public class GerenteView extends JFrame {
 
@@ -31,7 +32,6 @@ public class GerenteView extends JFrame {
 	private JTable tableGerentes;
 	private JTextField textBusca;
 	private OpcoesAdicionaisView opcoesAdicionais;
-	private JTable tableProdutos;
 	JComboBox criterioDeBusca;
 	private GerenteController gerenteController = new GerenteController(this);
 	
@@ -48,12 +48,10 @@ public class GerenteView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public GerenteView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1130, 717);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setBounds(100, 0, 1130, 717);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,6 +62,13 @@ public class GerenteView extends JFrame {
 		contentPane.add(scrollPane);
 		
 		tableGerentes = new JTable();
+		tableGerentes.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nome", "CPF", "Email", "Telefone", "Sal\u00E1rio"
+			}
+		));
 		scrollPane.setViewportView(tableGerentes);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
@@ -79,6 +84,7 @@ public class GerenteView extends JFrame {
 		btnBuscar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				gerenteController.preencherResultados();
 			}
 		});
 		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -143,9 +149,10 @@ public class GerenteView extends JFrame {
 		button_3.setBounds(29, 633, 153, 37);
 		contentPane.add(button_3);
 		
-		JComboBox criterioDeBusca = new JComboBox();
+		criterioDeBusca = new JComboBox();
+		criterioDeBusca.setFont(new Font("Arial", Font.PLAIN, 14));
 		criterioDeBusca.setModel(new DefaultComboBoxModel(new String[] {"PESQUISAR POR NOME ", "PESQUISAR POR CPF "}));
-		criterioDeBusca.setBounds(29, 11, 182, 22);
+		criterioDeBusca.setBounds(29, 11, 190, 22);
 		contentPane.add(criterioDeBusca);
 		
 		gerenteController.preencherGerentes();
@@ -164,7 +171,7 @@ public class GerenteView extends JFrame {
 		return opcoesAdicionais;
 	}
 	public JTable getTableGerentes() {
-		return tableProdutos;
+		return tableGerentes;
 	}
 	
 	public JComboBox getCriterioDeBusca() {

@@ -36,7 +36,7 @@ public class BuscarController {
 	
 	//método chamado quando o botão busca é apertado
 	//tabela será preenchida com os resultados da pesquisa
-	public void preencherResultados() {
+public void preencherResultados() {
 		Connection conexao;
 		try {
 			conexao = new ConexaoDao().getConnection();

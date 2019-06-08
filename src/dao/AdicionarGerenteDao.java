@@ -16,7 +16,7 @@ public class AdicionarGerenteDao {
 	}
 	
 	public void addGerente (Gerente gerente) throws SQLException {
-		String sql = "insert into Gerente(nome, cpf, telefone, email, login, senha) values (?, ?, ?, ?, ?, ?)";
+		String sql = "insert into Gerente(nome, cpf, telefone, email, login, senha, salario) values (?, ?, ?, ?, ?, ?, 5000)";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, gerente.getNome());
 		statement.setString(2, gerente.getCpf());

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import controllerHelper.GerentesHelper;
 import dao.BuscarDao;
 import dao.ConexaoDao;
+import dao.FuncionariosDao;
+import dao.GerenteDao;
+import model.Funcionario;
 import model.Gerente;
 import view.GerenteView;
 
@@ -24,8 +27,8 @@ public class GerenteController {
 		Connection conexao;
 		try {
 			conexao = new ConexaoDao().getConnection();
-			BuscarDao buscarDao = new BuscarDao(conexao);
-			ArrayList<Gerente> gerentes = buscarDao.buscarGerente(janelaGerentes.getCriterioDeBusca().getSelectedIndex(), janelaGerentes.getTextBusca().getText());
+			GerenteDao gerenteDao = new GerenteDao(conexao);
+			ArrayList<Gerente> gerentes = gerenteDao.exibirGerentes();
 			helper.preencher(gerentes);
 		} 
 		catch(SQLSyntaxErrorException e) {
@@ -35,6 +38,22 @@ public class GerenteController {
 			e.printStackTrace();
 		}
 } 
-	
+	public void preencherResultados() {
+		Connection conexao;
+		try {
+			conexao = new ConexaoDao().getConnection();
+			GerenteDao gerenteDao = new GerenteDao(conexao);
+			ArrayList<Gerente> gerentes = gerenteDao.buscarGerente(janelaGerentes.getCriterioDeBusca().getSelectedIndex(),
+					janelaGerentes.getTextBusca().getText());
+			helper.preencher(gerentes);
+		} 
+		catch(SQLSyntaxErrorException e) {
+			helper.apagarTabela();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//FIM MÉTODOS DE BUSCA
 	
 }
