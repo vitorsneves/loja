@@ -22,7 +22,11 @@ public class FuncionariosHelper {
 		tableModel.setNumRows(0);
 		for(Funcionario funcionario : funcionarios) {
 			tableModel.addRow(new Object[] {
-				
+					funcionario.getNome(),
+	                funcionario.getCpf(),
+	                funcionario.getEmail(),
+	                funcionario.getTelefone(),
+	                funcionario.getSalario(),
 			});
 		}
 	}

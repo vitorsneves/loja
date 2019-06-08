@@ -19,7 +19,7 @@ public class FuncionariosDao {
 	//o primeiro retorna um ArrayList com todos os funcionarios
 	public ArrayList<Funcionario> exibirFuncionarios() throws SQLException {
 		ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
-		String sql = "select * from funcionarios";
+		String sql = "select * from funcionario";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
 		while(resultado.next()) {
@@ -41,11 +41,10 @@ public class FuncionariosDao {
 		ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 		String sql;
 		if(criterioDeBusca == 0) {
-			sql =  "select * from produtos where nome like '%"+ informacaoDigitada +"%'";
+			sql =  "select * from funcionario where nome like '%"+ informacaoDigitada +"%'";
 		}
 		else {
-			int codigo = Integer.parseInt(informacaoDigitada);
-			sql =  "select * from produtos where codigo ="+	codigo+"";
+			sql =  "select * from funcionario where cpf like '%"+ informacaoDigitada +"%'";
 		}
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();

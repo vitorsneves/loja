@@ -47,7 +47,7 @@ public class AdicionarFuncionariosView extends JFrame {
 	}
 
 	public AdicionarFuncionariosView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(500, 50, 411, 680);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

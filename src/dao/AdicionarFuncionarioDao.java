@@ -15,7 +15,7 @@ public class AdicionarFuncionarioDao {
 	}
 	
 	public void addFuncionario (Funcionario funcionario) throws SQLException {
-		String sql = "insert into Funcionario(nome, cpf, telefone, email, login, senha) values (?, ?, ?, ?, ?, ?)";
+		String sql = "insert into Funcionario(nome, cpf, telefone, email, login, senha, salario) values (?, ?, ?, ?, ?, ?, 1500)";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, funcionario.getNome());
 		statement.setString(2, funcionario.getCpf());

@@ -7,6 +7,10 @@ import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.BuscarController;
+import controller.GerenteController;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JTable;
@@ -14,19 +18,23 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 public class GerenteView extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
-	private JTextField textNome;
+	private JTable tableGerentes;
+	private JTextField textBusca;
 	private OpcoesAdicionaisView opcoesAdicionais;
-	/**
-	 * Launch the application.
-	 */
+	JComboBox criterioDeBusca;
+	private GerenteController gerenteController = new GerenteController(this);
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,12 +48,10 @@ public class GerenteView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public GerenteView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1130, 717);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setBounds(100, 0, 1130, 717);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,22 +61,30 @@ public class GerenteView extends JFrame {
 		scrollPane.setBounds(29, 123, 1062, 469);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		tableGerentes = new JTable();
+		tableGerentes.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nome", "CPF", "Email", "Telefone", "Sal\u00E1rio"
+			}
+		));
+		scrollPane.setViewportView(tableGerentes);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		scrollPane.setColumnHeaderView(lblNewLabel_1);
 		
-		textNome = new JTextField();
-		textNome.setBounds(29, 53, 899, 37);
-		contentPane.add(textNome);
-		textNome.setColumns(10);
+		textBusca = new JTextField();
+		textBusca.setBounds(29, 53, 899, 37);
+		contentPane.add(textBusca);
+		textBusca.setColumns(10);
 		
 		//botão BUSCAR
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				gerenteController.preencherResultados();
 			}
 		});
 		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -135,10 +149,13 @@ public class GerenteView extends JFrame {
 		button_3.setBounds(29, 633, 153, 37);
 		contentPane.add(button_3);
 		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(29, 20, 129, 33);
-		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(lblNome);
+		criterioDeBusca = new JComboBox();
+		criterioDeBusca.setFont(new Font("Arial", Font.PLAIN, 14));
+		criterioDeBusca.setModel(new DefaultComboBoxModel(new String[] {"PESQUISAR POR NOME ", "PESQUISAR POR CPF "}));
+		criterioDeBusca.setBounds(29, 11, 190, 22);
+		contentPane.add(criterioDeBusca);
+		
+		gerenteController.preencherGerentes();
 		
 	}
 
@@ -155,5 +172,15 @@ public class GerenteView extends JFrame {
 	
 	public OpcoesAdicionaisView getOpcoesAdicionais() {
 		return opcoesAdicionais;
+	}
+	public JTable getTableGerentes() {
+		return tableGerentes;
+	}
+	
+	public JComboBox getCriterioDeBusca() {
+		return criterioDeBusca;
+	}
+	public JTextField getTextBusca() {
+		return textBusca;
 	}
 }
