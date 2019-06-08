@@ -36,7 +36,7 @@ public class BuscarDao {
 		return produtos;	
 	}
 	
-	public ArrayList<Produto> buscarNome(String nome) throws SQLException {
+	public ArrayList<Produto> buscarNome(String nome, int codigo) throws SQLException {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		String sql =  "select * from produtos where nome like '%" + nome + "%'";
 		PreparedStatement statement = connection.prepareStatement(sql);
