@@ -89,12 +89,13 @@ public class CarrinhoView extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancelar compra");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				janelaBuscar.setEnabled(true);
-				janelaBuscar.getJanelaMenu().toFront();
-				janelaBuscar.toFront();
 				janelaBuscar.getBtnSair().setEnabled(true);
 				janelaBuscar.getBtnNovaCompra().setEnabled(true);
+				janelaBuscar.getBtnAdicionar02().setEnabled(false);
+				dispose();
+				janelaBuscar.getJanelaMenu().toFront();
+				janelaBuscar.toFront();
+
 			}
 		});
 		btnNewButton_1.setBounds(31, 469, 206, 36);
