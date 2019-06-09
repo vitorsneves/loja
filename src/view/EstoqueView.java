@@ -100,6 +100,7 @@ public class EstoqueView extends JFrame {
 		JButton btnCadastrarProduto = new JButton("Novo produto");
 		btnCadastrarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				AdicionarProdutoView view = new AdicionarProdutoView();
 				view.setEstoqueView(getThis());
 				getThis().setVisible(false);
@@ -128,6 +129,7 @@ public class EstoqueView extends JFrame {
 		btnEditar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				EditarQuantidadeEmEstoqueView view = new EditarQuantidadeEmEstoqueView();
 				view.setEstoqueView(getThis());
 				getThis().setVisible(false);

@@ -22,10 +22,8 @@ public class AdicionarProdutoView extends JFrame {
 	private JTextField textFabricante;
 	private JTextField textTamanho;
 	private JTextField textTipo;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField textPreco;
 	private EstoqueView estoqueView;
-	private JTextField textField_6;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -42,7 +40,7 @@ public class AdicionarProdutoView extends JFrame {
 
 	public AdicionarProdutoView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(500, 50, 411, 761);
+		setBounds(500, 50, 925, 676);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,7 +53,7 @@ public class AdicionarProdutoView extends JFrame {
 		contentPane.add(nome);
 		
 		textNome = new JTextField();
-		textNome.setBounds(10, 153, 377, 35);
+		textNome.setBounds(10, 153, 891, 35);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 		
@@ -65,11 +63,21 @@ public class AdicionarProdutoView extends JFrame {
 		Fabricante.setBounds(10, 193, 147, 35);
 		contentPane.add(Fabricante);
 		
+		textFabricante = new JTextField();
+		textFabricante.setColumns(10);
+		textFabricante.setBounds(10, 227, 891, 35);
+		contentPane.add(textFabricante);
+		
 		JLabel Tamanho = new JLabel("Tamanho *");
 		Tamanho.setForeground(Color.WHITE);
 		Tamanho.setFont(new Font("Arial", Font.BOLD, 20));
 		Tamanho.setBounds(10, 260, 235, 35);
 		contentPane.add(Tamanho);
+		
+		textTamanho = new JTextField();
+		textTamanho.setColumns(10);
+		textTamanho.setBounds(10, 290, 891, 35);
+		contentPane.add(textTamanho);
 		
 		JLabel Tipo = new JLabel("Tipo *");
 		Tipo.setForeground(Color.WHITE);
@@ -77,11 +85,21 @@ public class AdicionarProdutoView extends JFrame {
 		Tipo.setBounds(10, 329, 82, 35);
 		contentPane.add(Tipo);
 		
-		JLabel Quantidade = new JLabel("Login *");
+		textTipo = new JTextField();
+		textTipo.setColumns(10);
+		textTipo.setBounds(10, 361, 891, 35);
+		contentPane.add(textTipo);
+		
+		JLabel Quantidade = new JLabel("Quantidade*");
 		Quantidade.setForeground(Color.WHITE);
 		Quantidade.setFont(new Font("Arial", Font.BOLD, 20));
-		Quantidade.setBounds(10, 400, 82, 35);
+		Quantidade.setBounds(10, 400, 147, 35);
 		contentPane.add(Quantidade);
+		
+		JTextField textQuantidade = new JTextField();
+		textQuantidade.setColumns(10);
+		textQuantidade.setBounds(10, 429, 891, 35);
+		contentPane.add(textQuantidade);
 		
 		JLabel Preco = new JLabel("Preço *");
 		Preco.setForeground(Color.WHITE);
@@ -89,48 +107,22 @@ public class AdicionarProdutoView extends JFrame {
 		Preco.setBounds(10, 474, 82, 35);
 		contentPane.add(Preco);
 		
-		textFabricante = new JTextField();
-		textFabricante.setColumns(10);
-		textFabricante.setBounds(10, 227, 377, 35);
-		contentPane.add(textFabricante);
+		textPreco = new JTextField();
+		textPreco.setColumns(10);
+		textPreco.setBounds(10, 508, 891, 35);
+		contentPane.add(textPreco);
 		
-		textTamanho = new JTextField();
-		textTamanho.setColumns(10);
-		textTamanho.setBounds(10, 290, 377, 35);
-		contentPane.add(textTamanho);
-		
-		textTipo = new JTextField();
-		textTipo.setColumns(10);
-		textTipo.setBounds(10, 358, 377, 35);
-		contentPane.add(textTipo);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(10, 429, 377, 35);
-		contentPane.add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(10, 508, 377, 35);
-		contentPane.add(textField_5);
-		
-		JLabel lblAdicionarNovo = new JLabel("Adicionar novo");
-		lblAdicionarNovo.setBounds(142, 10, 221, 68);
+		JLabel lblAdicionarNovo = new JLabel("Adicionar novo produto");
+		lblAdicionarNovo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAdicionarNovo.setBounds(0, 10, 901, 68);
 		lblAdicionarNovo.setForeground(Color.WHITE);
 		lblAdicionarNovo.setFont(new Font("Arial", Font.BOLD, 30));
 		contentPane.add(lblAdicionarNovo);
 		
-		JLabel lblProduto = new JLabel("produto");
-		lblProduto.setHorizontalAlignment(SwingConstants.CENTER);
-		lblProduto .setBounds(142, 63, 221, 44);
-		lblProduto .setForeground(Color.WHITE);
-		lblProduto.setFont(new Font("Arial", Font.BOLD, 30));
-		contentPane.add(lblProduto);
-		
 		JLabel label_a = new JLabel("Os campos com * são obrigatórios");
 		label_a.setForeground(Color.WHITE);
 		label_a.setFont(new Font("Arial", Font.BOLD, 11));
-		label_a.setBounds(185, 633, 202, 23);
+		label_a.setBounds(699, 569, 202, 23);
 		contentPane.add(label_a);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -142,13 +134,7 @@ public class AdicionarProdutoView extends JFrame {
 				estoqueView.toFront();
 			}
 		});
-		
-		JLabel label = new JLabel("Pre\u00E7o *");
-		label.setForeground(Color.WHITE);
-		label.setFont(new Font("Arial", Font.BOLD, 20));
-		label.setBounds(10, 553, 82, 35);
-		contentPane.add(label);
-		btnVoltar.setBounds(186, 677, 89, 23);
+		btnVoltar.setBounds(687, 609, 102, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnNewButton_1 = new JButton("Confirmar");
@@ -157,17 +143,12 @@ public class AdicionarProdutoView extends JFrame {
 				//gerenteControlador.adicionarGerente();
 			}
 		});
-		btnNewButton_1.setBounds(285, 677, 102, 23);
+		btnNewButton_1.setBounds(799, 609, 102, 23);
 		contentPane.add(btnNewButton_1);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(10, 588, 377, 35);
-		contentPane.add(textField_6);
 		
 		
 		JLabel Fundo = new JLabel("");
-		Fundo.setBounds(0, 0, 397, 714);
+		Fundo.setBounds(0, 0, 931, 646);
 		Fundo.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/FundoAdicionarProduto.jpg")));
 		contentPane.add(Fundo);
 		
