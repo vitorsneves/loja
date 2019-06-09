@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.VenderController;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -19,10 +22,13 @@ import javax.swing.JLabel;
 public class CarrinhoView extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTable tabelaCarrinho;
 	private JTextField textCodigoProduto;
 	private BuscarView janelaBuscar;
-	private JTextField textQtdComprada;
+	private JTextField textQtd;
+	private int linhas;
+	private VenderController controlador = new VenderController(getThis());
+	private JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -55,8 +61,9 @@ public class CarrinhoView extends JFrame {
 		scrollPane.setBounds(31, 105, 861, 335);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		linhas = 0;
+		tabelaCarrinho = new JTable();
+		scrollPane.setViewportView(tabelaCarrinho);
 		
 		textCodigoProduto = new JTextField();
 		textCodigoProduto.setBounds(31, 34, 542, 27);
@@ -71,7 +78,7 @@ public class CarrinhoView extends JFrame {
 		btnNewButton.setBounds(775, 34, 117, 27);
 		contentPane.add(btnNewButton);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Adicionar produto no carrinho", "Remover produto do carrinho"}));
 		comboBox.setBounds(30, 72, 228, 20);
 		contentPane.add(comboBox);
@@ -106,10 +113,10 @@ public class CarrinhoView extends JFrame {
 		btnNewButton_2.setBounds(639, 469, 253, 36);
 		contentPane.add(btnNewButton_2);
 		
-		textQtdComprada = new JTextField();
-		textQtdComprada.setBounds(583, 34, 182, 27);
-		contentPane.add(textQtdComprada);
-		textQtdComprada.setColumns(10);
+		textQtd = new JTextField();
+		textQtd.setBounds(583, 34, 182, 27);
+		contentPane.add(textQtd);
+		textQtd.setColumns(10);
 		
 		JLabel lblCdigoDoProduto = new JLabel("C\u00F3digo do produto");
 		lblCdigoDoProduto.setBounds(31, 11, 127, 14);
@@ -118,6 +125,15 @@ public class CarrinhoView extends JFrame {
 		JLabel lblQuantidade = new JLabel("Quantidade ");
 		lblQuantidade.setBounds(583, 11, 117, 14);
 		contentPane.add(lblQuantidade);
+
+	}
+	
+	public int getLinhas() {
+		return linhas;
+	}
+
+	public void setLinhas(int linhas) {
+		this.linhas = linhas;
 	}
 
 	public BuscarView getJanelaBuscar() {
@@ -136,7 +152,25 @@ public class CarrinhoView extends JFrame {
 		return textCodigoProduto;
 	}
 
-	public JTextField getTextQtdComprada() {
-		return textQtdComprada;
+	public JTable getTabelaCarrinho() {
+		return tabelaCarrinho;
 	}
+	
+	public void novaLinha() {
+		this.linhas++;
+	}
+	
+	public void tirarLinha() {
+		this.linhas--;
+	}
+
+	public JTextField getTextQtd() {
+		return textQtd;
+	}
+
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+	
+	
 }
