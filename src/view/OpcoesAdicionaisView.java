@@ -112,11 +112,9 @@ public class OpcoesAdicionaisView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				EstoqueView estoqueView = new EstoqueView();
-				estoqueView.setJanelaEstoque(getThis());
+				estoqueView.setOpcoesAdicionais(getThis());
 				estoqueView.setVisible(true); 
 				getThis().setEnabled(false);
-				
-				
 			}
 		});		
 		btnEstoque.setHorizontalAlignment(SwingConstants.LEFT);

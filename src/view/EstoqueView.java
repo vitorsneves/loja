@@ -35,7 +35,7 @@ public class EstoqueView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BuscarView frame = new BuscarView();
+					EstoqueView frame = new EstoqueView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -161,8 +161,8 @@ public class EstoqueView extends JFrame {
 		contentPane.add(fundo02);
 		
 		JLabel fundo = new JLabel("");
-		fundo.setBounds(-143, -51, 1018, 686);
-		fundo.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEstoque2.jpg")));
+		//fundo.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEditarEstoque.png")));
+		fundo.setBounds(0, 0, 875, 644);
 		contentPane.add(fundo);
 		
 		setResizable(false);
@@ -192,16 +192,8 @@ public class EstoqueView extends JFrame {
 		return this;
 	}
 	
-	public void setJanelaEstoque(OpcoesAdicionaisView opcoes) {
-		this.opcoesAdicionais = opcoes;
-	}
-	
 	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
 		this.opcoesAdicionais = opcoes;
-	}
-	
-	public OpcoesAdicionaisView getOpcoesAdicionais() {
-		return opcoesAdicionais;
 	}
 }
 
