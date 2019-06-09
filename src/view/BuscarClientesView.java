@@ -26,6 +26,7 @@ public class BuscarClientesView extends JFrame {
 	private MenuPrincipalView janelaMenu;
 	private JButton btnRmvCliente;
 	private BuscarClientesController controlador = new BuscarClientesController(this);
+	private JComboBox comboBox;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -61,7 +62,7 @@ public class BuscarClientesView extends JFrame {
 		btnBuscar.setBounds(607, 36, 89, 23);
 		contentPane.add(btnBuscar);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Nome do cliente", "Cpf do cliente"}));
 		comboBox.setBounds(10, 11, 138, 20);
 		contentPane.add(comboBox);
@@ -101,4 +102,17 @@ public class BuscarClientesView extends JFrame {
 	public JButton getBtnRmvCliente() {
 		return btnRmvCliente;
 	}
+
+	public JTable getTabelaClientes() {
+		return tabelaClientes;
+	}
+
+	public JTextField getTextBusca() {
+		return textBusca;
+	}
+
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
 }

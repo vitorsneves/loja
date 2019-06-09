@@ -4,6 +4,10 @@ public class Cliente extends Pessoa {
 	private double gastoTotal;
 	private double bonus;
 	
+	public Cliente() {
+		super();
+	}
+	
 	public Cliente(String nome, String cpf, String telefone, String email) {
 		super(nome,cpf,telefone,email);
 	}

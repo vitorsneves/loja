@@ -129,7 +129,10 @@ public class EstoqueView extends JFrame {
 	public void setOpcoesAdicionais(OpcoesAdicionaisView janela) {
 		this.opcoesAdicionais = janela;
 	}
-	
+
+	public OpcoesAdicionaisView getOpcoesAdicionais() {
+		return opcoesAdicionais;
+	}
 
 }
 

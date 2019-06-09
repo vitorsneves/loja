@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
-import model.Funcionario;
+import model.Cliente;
 import view.BuscarClientesView;
 
 public class ClientesHelper {
@@ -17,17 +17,21 @@ public class ClientesHelper {
 		janelaBuscarClientes = janela;
 	}
 	
-	public void preencher(ArrayList<Clientes> clientes) {
-		DefaultTableModel tableModel = (DefaultTableModel) janelaBuscarClientes.get;
+	public void preencher(ArrayList<Cliente> clientes) {
+		DefaultTableModel tableModel = (DefaultTableModel) janelaBuscarClientes.getTabelaClientes().getModel();
 		tableModel.setNumRows(0);
-		for(Funcionario funcionario : funcionarios) {
+		for(Cliente cliente : clientes) {
 			tableModel.addRow(new Object[] {
-					funcionario.getNome(),
-	                funcionario.getCpf(),
-	                funcionario.getEmail(),
-	                funcionario.getTelefone(),
-	                funcionario.getSalario(),
+					cliente.getNome(),
+					cliente.getCpf(),
+					cliente.getTelefone(),
+					cliente.getEmail(),
 			});
 		}
+	}
+	
+	public void apagarTabela() {
+		DefaultTableModel tableModel = (DefaultTableModel) janelaBuscarClientes.getTabelaClientes().getModel();
+		tableModel.setNumRows(0);
 	}
 }
