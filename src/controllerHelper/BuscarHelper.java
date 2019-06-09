@@ -17,10 +17,9 @@ public class BuscarHelper {
 	}
 	
 	public void preencher(ArrayList<Produto> produtos) {
-		DefaultTableModel tableModel = (DefaultTableModel) janelaBuscar.getTableProdutos().getModel();
-		tableModel.setNumRows(0);
+		janelaBuscar.getTableModel().setNumRows(0);
 		for(Produto produto : produtos) {
-			tableModel.addRow(new Object[] {
+			janelaBuscar.getTableModel().addRow(new Object[] {
 				produto.getCodigo(),
                 produto.getNome(),
                 produto.getFabricante(),
@@ -33,7 +32,6 @@ public class BuscarHelper {
 	}
 	
 	public void apagarTabela() {
-		DefaultTableModel tableModel = (DefaultTableModel) janelaBuscar.getTableProdutos().getModel();
-		tableModel.setNumRows(0);
+		janelaBuscar.getTableModel().setNumRows(0);
 	}
 }

@@ -37,6 +37,9 @@ public class BuscarView extends JFrame {
 	private BuscarController buscarController = new BuscarController(this);
 	private JButton btnSair;
 	private JButton btnNovaCompra;
+	private JButton btnAdicionar02;
+	private CarrinhoView janelaCarrinho;
+	private DefaultTableModel tableModel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -105,20 +108,34 @@ public class BuscarView extends JFrame {
 				buscarController.preencherTudo();
 			}
 		});
-		btnExibirTodos.setBounds(455, 490, 150, 30);
+		
+		btnAdicionar02 = new JButton("Adicionar selecionado");
+		btnAdicionar02.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnAdicionar02.setEnabled(false);
+				QtdCarrinhoView janelaQtd02 = new QtdCarrinhoView(getThis());
+				janelaQtd02.setVisible(true);
+				janelaQtd02.toFront();
+			}
+		});
+		btnAdicionar02.setBounds(252, 490, 169, 30);
+		contentPane.add(btnAdicionar02);
+		btnExibirTodos.setBounds(431, 490, 169, 30);
 		contentPane.add(btnExibirTodos);
+		btnAdicionar02.setEnabled(false);
 		
 		btnNovaCompra = new JButton("Efetuar nova venda");
 		btnNovaCompra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CarrinhoView janelaCarrinho = new CarrinhoView();
+				janelaCarrinho = new CarrinhoView();
 				janelaCarrinho.setJanelaBuscar(getThis());
 				janelaCarrinho.setVisible(true);
 				btnSair.setEnabled(false);
 				btnNovaCompra.setEnabled(false);
+				btnAdicionar02.setEnabled(true);
 			}
 		});
-		btnNovaCompra.setBounds(615, 490, 162, 30);
+		btnNovaCompra.setBounds(610, 490, 169, 30);
 		contentPane.add(btnNovaCompra);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -168,6 +185,7 @@ public class BuscarView extends JFrame {
 		
 		//preenche todas a colunas
 		buscarController.preencherTudo();
+		tableModel = (DefaultTableModel) tableProdutos.getModel();
 	}
 
 	public void setJanelaMenu(MenuPrincipalView janelaMenu) {
@@ -213,6 +231,17 @@ public class BuscarView extends JFrame {
 	public void setBtnNovaCompra(JButton btnNovaCompra) {
 		this.btnNovaCompra = btnNovaCompra;
 	}
-	
+
+	public JButton getBtnAdicionar02() {
+		return btnAdicionar02;
+	}
+
+	public CarrinhoView getJanelaCarrinho() {
+		return janelaCarrinho;
+	}
+
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
 	
 }
