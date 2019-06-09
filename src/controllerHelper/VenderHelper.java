@@ -16,7 +16,6 @@ public class VenderHelper {
 	}
 	
 	public void adicionarNaVenda(Produto produto) {
-		
 		janelaVender.novaLinha();
 
 		janelaVender.getTableModel().addRow(new Object[] {

@@ -173,6 +173,7 @@ public class GerenteView extends JFrame {
 	public OpcoesAdicionaisView getOpcoesAdicionais() {
 		return opcoesAdicionais;
 	}
+	
 	public JTable getTableGerentes() {
 		return tableGerentes;
 	}
