@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import controller.BuscarClientesController;
 
@@ -57,6 +58,7 @@ public class BuscarClientesView extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				controlador.preencherResultados();
 			}
 		});
 		btnBuscar.setBounds(607, 36, 89, 23);
@@ -72,8 +74,14 @@ public class BuscarClientesView extends JFrame {
 		contentPane.add(scrollPane);
 		
 		tabelaClientes = new JTable();
-		scrollPane.setViewportView(tabelaClientes);
-		
+		tabelaClientes.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nome", "CPF", "Email", "Telefone", "Gasto total"
+			}
+		));
+		scrollPane.setViewportView(tabelaClientes);	
 		btnRmvCliente = new JButton("Remover cliente");
 		btnRmvCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,6 +101,8 @@ public class BuscarClientesView extends JFrame {
 		});
 		btnVoltar.setBounds(10, 399, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		controlador.preencherClientes();
 	}
 
 	public void setJanelaMenu(MenuPrincipalView janelaMenu) {
