@@ -88,8 +88,8 @@ public class EstoqueView extends JFrame {
 		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 20));
 		contentPane.add(btnBuscar);
 		
-		JButton btnAdicionarProduto = new JButton("Adicionar Produto");
-		btnAdicionarProduto.addActionListener(new ActionListener() {
+		JButton btnCadastrarProduto = new JButton("Cadastrar produto");
+		btnCadastrarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AdicionarProdutoView view = new AdicionarProdutoView();
 				view.setEstoqueView(getThis());
@@ -99,15 +99,30 @@ public class EstoqueView extends JFrame {
 				view.toFront();
 			}
 		});
-		btnAdicionarProduto.setBounds(443, 495, 193, 40);
-		btnAdicionarProduto.setHorizontalAlignment(SwingConstants.LEFT);
-		btnAdicionarProduto.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(btnAdicionarProduto);
+		btnCadastrarProduto.setBounds(333, 495, 193, 40);
+		btnCadastrarProduto.setHorizontalAlignment(SwingConstants.LEFT);
+		btnCadastrarProduto.setFont(new Font("Arial", Font.PLAIN, 20));
+		contentPane.add(btnCadastrarProduto);
 		
 		JButton btnExibirTodos = new JButton("Exibir tudo");
 		btnExibirTodos.setFont(new Font("Arial", Font.PLAIN, 20));
 		btnExibirTodos.setBounds(646, 495, 133, 40);
 		contentPane.add(btnExibirTodos);
+		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EditarQuantidadeEmEstoqueView view = new EditarQuantidadeEmEstoqueView();
+				view.setEstoqueView(getThis());
+				getThis().setVisible(false);
+				view.setVisible(true);
+				opcoesAdicionais.toFront();
+				view.toFront();
+				
+			}
+		});
+		btnEditar.setBounds(536, 495, 100, 40);
+		contentPane.add(btnEditar);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEscuro.png")));
@@ -119,6 +134,12 @@ public class EstoqueView extends JFrame {
 		fundo02.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEscuro.png")));
 		contentPane.add(fundo02);
 		
+
+		JLabel fundo = new JLabel("");
+		//fundo.setIcon(new ImageIcon(LoginView.class.getResource("/fundoEditarEstoque.png")));
+		fundo.setBounds(0, 0, 875, 644);
+		contentPane.add(fundo);
+
 		setResizable(false);
 	}
 
@@ -126,13 +147,13 @@ public class EstoqueView extends JFrame {
 		return this;
 	}
 	
-	public void setOpcoesAdicionais(OpcoesAdicionaisView janela) {
-		this.opcoesAdicionais = janela;
-	}
 
+	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
+		this.opcoesAdicionais = opcoes;
+	}
+	
 	public OpcoesAdicionaisView getOpcoesAdicionais() {
 		return opcoesAdicionais;
 	}
-
 }
 

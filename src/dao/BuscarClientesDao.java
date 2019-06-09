@@ -20,7 +20,7 @@ public class BuscarClientesDao {
 	//o primeiro retorna uma ArrayList com todos os clientes
 	public ArrayList<Cliente> exibirClientes() throws SQLException {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		String sql = "select * from clientes";
+		String sql = "select * from cliente";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
 		while(resultado.next()) {
@@ -29,6 +29,7 @@ public class BuscarClientesDao {
 			cliente.setCpf(resultado.getString(2));
 			cliente.setEmail(resultado.getString(3));
 			cliente.setTelefone(resultado.getString(4));
+			cliente.setTotalGasto(resultado.getDouble(5));
 
 			clientes.add(cliente);
 		}
@@ -40,10 +41,10 @@ public class BuscarClientesDao {
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 		String sql;
 		if(criterioDeBusca == 0) {
-			sql =  "select * from clientes where nome like '%"+ informacaoDigitada +"%'";
+			sql =  "select * from cliente where nome like '%"+ informacaoDigitada +"%'";
 		}
 		else {
-			sql =  "select * from clientes where cpf like '%"+ informacaoDigitada +"%'";
+			sql =  "select * from cliente where cpf like '%"+ informacaoDigitada +"%'";
 		}
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
@@ -53,6 +54,7 @@ public class BuscarClientesDao {
 			cliente.setCpf(resultado.getString(2));
 			cliente.setEmail(resultado.getString(3));
 			cliente.setTelefone(resultado.getString(4));
+			cliente.setTotalGasto(resultado.getDouble(5));
 
 			clientes.add(cliente);
 		}

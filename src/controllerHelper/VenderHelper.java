@@ -43,11 +43,11 @@ public class VenderHelper {
 		boolean encontrou = false;
 		
 		for(int i = 0; i < janelaVender.getLinhas(); i++) {
-			String valor = (String) janelaVender.getTabelaCarrinho().getValueAt(i, 0);
-			if(codigoProduto == Integer.parseInt(valor)) {
+			int valor =(int) janelaVender.getTabelaCarrinho().getValueAt(i, 0);
+			if(codigoProduto == valor) {
 				encontrou = true;
 				posicao = i;
-				quantidade = Integer.parseInt((String) janelaVender.getTabelaCarrinho().getValueAt(posicao, 5));
+				quantidade =(int) janelaVender.getTabelaCarrinho().getValueAt(posicao, 5);
 			}
 		}
 		
@@ -58,7 +58,18 @@ public class VenderHelper {
 				
 			}
 			else {
+				double preco = 0;
+				for(int i = 0; i < janelaVender.getLinhas(); i++) {
+					int valor =(int) janelaVender.getTabelaCarrinho().getValueAt(i, 0);
+					if(codigoProduto == valor) {
+						double novoValor =(double) janelaVender.getTabelaCarrinho().getValueAt(i, 6);
+						preco = (novoValor / quantidade*1.0);
+					}
+					
+				}
+			
 				janelaVender.getTableModel().setValueAt(quantidade - qtd, posicao, 5);
+				janelaVender.getTableModel().setValueAt(preco * (quantidade - qtd), posicao, 6);
 			}
 		}
 	}

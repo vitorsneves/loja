@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 
+import controllerHelper.BuscarHelper;
 import controllerHelper.ClientesHelper;
 import dao.BuscarClientesDao;
 import dao.BuscarDao;
@@ -19,6 +20,7 @@ public class BuscarClientesController {
 	
 	public BuscarClientesController(BuscarClientesView janela) {
 		this.janelaBuscarClientes = janela;
+		helper = new ClientesHelper(janela);
 	}
 	
 	//MÉTODOS DE BUSCA

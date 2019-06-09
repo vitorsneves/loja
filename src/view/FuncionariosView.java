@@ -82,9 +82,9 @@ public class FuncionariosView extends JFrame {
 		btnBuscar.setBounds(938, 53, 153, 37);
 		contentPane.add(btnBuscar);
 		
-		JScrollPane scrollGerentes = new JScrollPane();
-		scrollGerentes.setBounds(29, 127, 1062, 469);
-		contentPane.add(scrollGerentes);
+		JScrollPane scrollFuncionarios = new JScrollPane();
+		scrollFuncionarios.setBounds(29, 127, 1062, 469);
+		contentPane.add(scrollFuncionarios);
 		
 		tableFuncionarios = new JTable();
 		tableFuncionarios.setModel(new DefaultTableModel(
@@ -95,7 +95,7 @@ public class FuncionariosView extends JFrame {
 				"Nome", "CPF", "Email", "Telefone", "Sal\u00E1rio", "Comiss\u00E3o"
 			}
 		));
-		scrollGerentes.setViewportView(tableFuncionarios);
+		scrollFuncionarios.setViewportView(tableFuncionarios);
 		
 		//botão adicionar
 		JButton btnAdicionar = new JButton("Adicionar");

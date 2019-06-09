@@ -2,7 +2,6 @@ package model;
 
 public class Cliente extends Pessoa {
 	private double gastoTotal;
-	private double bonus;
 	
 	public Cliente() {
 		super();
@@ -20,12 +19,5 @@ public class Cliente extends Pessoa {
 		this.gastoTotal = totalGasto;
 	}
 
-	public double getBonus() {
-		return bonus;
-	}
-
-	public void setBonus(double bonus) {
-		this.bonus = bonus;
-	}
 
 }
