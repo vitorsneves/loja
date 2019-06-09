@@ -44,7 +44,7 @@ public class EditarQuantidadeEmEstoqueView extends JFrame {
 	 */
 	public EditarQuantidadeEmEstoqueView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 425, 333);
+		setBounds(100, 100, 425, 326);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,7 +55,7 @@ public class EditarQuantidadeEmEstoqueView extends JFrame {
 		lblCdigo.setBounds(24, 43, 95, 48);
 		contentPane.add(lblCdigo);
 		
-		JLabel lblQuantidadeASer = new JLabel("Quantidade a ser adicionada");
+		JLabel lblQuantidadeASer = new JLabel("Quantidade");
 		lblQuantidadeASer.setFont(new Font("Arial", Font.BOLD, 20));
 		lblQuantidadeASer.setBounds(24, 130, 332, 41);
 		contentPane.add(lblQuantidadeASer);
@@ -70,7 +70,7 @@ public class EditarQuantidadeEmEstoqueView extends JFrame {
 		textField_1.setBounds(24, 161, 379, 26);
 		contentPane.add(textField_1);
 		
-		JButton btnVoltar = new JButton("Voltar");
+		JButton btnVoltar = new JButton("Cancelar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -79,15 +79,23 @@ public class EditarQuantidadeEmEstoqueView extends JFrame {
 				estoqueView.toFront();
 			}
 		});
-		btnVoltar.setBounds(10, 232, 95, 41);
+		btnVoltar.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/cancelar.png")));
+		btnVoltar.setFont(new Font("Arial", Font.BOLD, 13));
+		btnVoltar.setBounds(109, 240, 135, 33);
 		contentPane.add(btnVoltar);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
-		btnConfirmar.setBounds(294, 232, 107, 41);
+		btnConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnConfirmar.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/confirmar.png")));
+		btnConfirmar.setBounds(254, 240, 147, 33);
+		btnConfirmar.setFont(new Font("Arial", Font.BOLD, 13));
 		contentPane.add(btnConfirmar);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(0, -32, 800, 328);
+		label.setBounds(-365, -133, 800, 562);
 		label.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoEditarEstoque.png")));
 		contentPane.add(label);
 		
