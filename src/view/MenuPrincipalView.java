@@ -20,6 +20,9 @@ public class MenuPrincipalView extends JFrame {
 
 	private JPanel contentPane;
 	JButton BtnOpcoesAdicionais;
+	
+	//essa variável serve pra ver se a pessoa que logou é um funcionario ou não
+	private boolean vcEhFuncionario;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -82,6 +85,12 @@ public class MenuPrincipalView extends JFrame {
 		JButton btnEstatisticas = new JButton("Clientes cadastrados");
 		btnEstatisticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				BuscarClientesView janelaCliente = new BuscarClientesView();
+				janelaCliente.setJanelaMenu(getThis());
+				janelaCliente.setVisible(true);
+				setEnabled(false);
+				if(vcEhFuncionario) //esse if desabilita o botão remover cliente se o usuário for um funcionário
+					janelaCliente.getBtnRmvCliente().setEnabled(false);
 			}
 		});
 		btnEstatisticas.setHorizontalAlignment(SwingConstants.LEFT);
@@ -118,18 +127,20 @@ public class MenuPrincipalView extends JFrame {
 		setResizable(false);
 		
 	}
+	
 	public void definirUsuario(int definirUsuario, MenuPrincipalView menu) {
+		menu.setVisible(true);
 		if(definirUsuario == 1) {
-			menu.setVisible(true);
+			vcEhFuncionario = false; //se for um funcionario, essa variável fica verdadeira
 		}
 		
 		if(definirUsuario == 2) {
-			menu.setVisible(true);
+			vcEhFuncionario = false;
 		}
 		
 		else if(definirUsuario == 3) {
-			menu.setVisible(true);
 			menu.getBtnOpcoesAdicionais().setEnabled(false);
+			vcEhFuncionario = true;
 		}
 	}
 	

@@ -12,12 +12,16 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class EditarQuantidaEmEstoque extends JFrame {
+public class EditarQuantidadeEmEstoqueView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private EditarQuantidadeEmEstoqueView janelaEditarQuantidade;
+	private EstoqueView estoqueView;
 
 	/**
 	 * Launch the application.
@@ -26,7 +30,7 @@ public class EditarQuantidaEmEstoque extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EditarQuantidaEmEstoque frame = new EditarQuantidaEmEstoque();
+					EditarQuantidadeEmEstoqueView frame = new EditarQuantidadeEmEstoqueView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +42,7 @@ public class EditarQuantidaEmEstoque extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EditarQuantidaEmEstoque() {
+	public EditarQuantidadeEmEstoqueView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 425, 333);
 		contentPane = new JPanel();
@@ -46,13 +50,12 @@ public class EditarQuantidaEmEstoque extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCdigo = new JLabel("C\u00F3digo");
-		lblCdigo.setFont(new Font("Arial", Font.PLAIN, 20));
+		JLabel lblCdigo = new JLabel("Código");
+		lblCdigo.setFont(new Font("Arial", Font.BOLD, 20));
 		lblCdigo.setBounds(24, 43, 95, 48);
 		contentPane.add(lblCdigo);
 		
 		JLabel lblQuantidadeASer = new JLabel("Quantidade a ser adicionada");
-		lblQuantidadeASer.setForeground(Color.WHITE);
 		lblQuantidadeASer.setFont(new Font("Arial", Font.BOLD, 20));
 		lblQuantidadeASer.setBounds(24, 130, 332, 41);
 		contentPane.add(lblQuantidadeASer);
@@ -68,17 +71,34 @@ public class EditarQuantidaEmEstoque extends JFrame {
 		contentPane.add(textField_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(10, 232, 85, 21);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				estoqueView.setVisible(true);
+				estoqueView.getOpcoesAdicionais().toFront();
+				estoqueView.toFront();
+			}
+		});
+		btnVoltar.setBounds(10, 232, 95, 41);
 		contentPane.add(btnVoltar);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
-		btnConfirmar.setBounds(318, 232, 85, 21);
+		btnConfirmar.setBounds(294, 232, 107, 41);
 		contentPane.add(btnConfirmar);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(0, -32, 800, 285);
+		label.setBounds(0, -32, 800, 328);
 		label.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/fundoEditarEstoque.png")));
 		contentPane.add(label);
 		
+		
+		
 	}
+
+
+	public void setEstoqueView(EstoqueView this1) {
+		this.estoqueView = this1;
+		
+	}
+	
 }

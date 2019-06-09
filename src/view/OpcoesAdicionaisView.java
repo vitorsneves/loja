@@ -110,7 +110,6 @@ public class OpcoesAdicionaisView extends JFrame {
 		JButton btnEstoque = new JButton("Estoque");
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				EstoqueView estoqueView = new EstoqueView();
 				estoqueView.setOpcoesAdicionais(getThis());
 				estoqueView.setVisible(true); 

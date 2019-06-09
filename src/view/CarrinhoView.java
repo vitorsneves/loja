@@ -31,7 +31,6 @@ public class CarrinhoView extends JFrame {
 	private VenderController controlador = new VenderController(getThis());
 	private JComboBox comboBox;
 	private DefaultTableModel tableModel;
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,7 +44,6 @@ public class CarrinhoView extends JFrame {
 		});
 	}
 
-	
 	public CarrinhoView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 936, 563);
@@ -187,5 +185,6 @@ public class CarrinhoView extends JFrame {
 	public void setTableModel(DefaultTableModel tableModel) {
 		this.tableModel = tableModel;
 	}
+
 	
 }

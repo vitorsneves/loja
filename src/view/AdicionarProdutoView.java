@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -28,9 +27,6 @@ public class AdicionarProdutoView extends JFrame {
 	private EstoqueView estoqueView;
 	private JTextField textField_6;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,9 +40,6 @@ public class AdicionarProdutoView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public AdicionarProdutoView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 50, 411, 761);
@@ -71,7 +64,6 @@ public class AdicionarProdutoView extends JFrame {
 		Fabricante.setFont(new Font("Arial", Font.BOLD, 20));
 		Fabricante.setBounds(10, 193, 147, 35);
 		contentPane.add(Fabricante);
-
 		
 		JLabel Tamanho = new JLabel("Tamanho *");
 		Tamanho.setForeground(Color.WHITE);
@@ -79,15 +71,11 @@ public class AdicionarProdutoView extends JFrame {
 		Tamanho.setBounds(10, 260, 235, 35);
 		contentPane.add(Tamanho);
 		
-
-		
 		JLabel Tipo = new JLabel("Tipo *");
 		Tipo.setForeground(Color.WHITE);
 		Tipo.setFont(new Font("Arial", Font.BOLD, 20));
 		Tipo.setBounds(10, 329, 82, 35);
 		contentPane.add(Tipo);
-		
-
 		
 		JLabel Quantidade = new JLabel("Login *");
 		Quantidade.setForeground(Color.WHITE);
@@ -148,7 +136,6 @@ public class AdicionarProdutoView extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				dispose();
 				estoqueView.setVisible(true);
 				estoqueView.getOpcoesAdicionais().toFront();
