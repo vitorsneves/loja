@@ -32,6 +32,7 @@ public class FuncionariosView extends JFrame {
 	private JTable tableFuncionarios;
 	JComboBox criterioDeBusca;
 	FuncionarioController funcionarioController = new FuncionarioController(this);
+	DefaultTableModel tableModel;
 
 	
 	public static void main(String[] args) {
@@ -121,6 +122,11 @@ public class FuncionariosView extends JFrame {
 		btnRemover.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/removerGerente32.png")));
 		btnRemover.setBounds(731, 633, 177, 37);
 		contentPane.add(btnRemover);
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				funcionarioController.removerFuncionario();
+			}
+		});
 		
 		//Botão voltar
 		JButton btnVoltar = new JButton("Voltar");
@@ -130,6 +136,10 @@ public class FuncionariosView extends JFrame {
 				getThis().dispose();
 			}
 		});
+		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 20));
+		btnVoltar.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/voltar32.png")));
+		btnVoltar.setBounds(24, 633, 153, 37);
+		contentPane.add(btnVoltar);
 		
 		//botão editar
 		JButton btnEditar = new JButton("Editar");
@@ -138,12 +148,8 @@ public class FuncionariosView extends JFrame {
 		btnEditar.setIcon(new ImageIcon(MenuPrincipalView.class.getResource("/engrenagem32.png")));
 		btnEditar.setBounds(570, 633, 153, 37);
 		contentPane.add(btnEditar);
-		btnVoltar.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnVoltar.setIcon(new ImageIcon(OpcoesAdicionaisView.class.getResource("/voltar32.png")));
-		btnVoltar.setBounds(24, 633, 153, 37);
-
-		contentPane.add(btnVoltar);
 		
+		tableModel = (DefaultTableModel) tableFuncionarios.getModel();
 		funcionarioController.preencherTudo();
 
 	}
@@ -171,4 +177,9 @@ public class FuncionariosView extends JFrame {
 	public FuncionariosView getThis() {
 		return this;
 	}
+
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
+	
 }

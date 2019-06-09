@@ -56,4 +56,11 @@ public class GerenteController {
 	}
 	//FIM MÉTODOS DE BUSCA
 	
+	//MÉTODO DE REMOÇÃO
+	public void removerGerente() {
+		int linhaSelecionada = janelaGerentes.getTableGerentes().getSelectedRow();
+		String cpf = (String) janelaGerentes.getTableModel().getValueAt(linhaSelecionada, 1);
+		//falta chamar o dao e passar o cpf aqui
+		helper.removerGerente(linhaSelecionada);
+	}
 }

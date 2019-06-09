@@ -15,11 +15,12 @@ public class GerentesHelper {
 		this.janelaGerentes = janela;
 	}
 	
+	//MÉTODOS DE BUSCA
 	public void preencher(ArrayList<Gerente> gerentes) {
-		DefaultTableModel tableModel = (DefaultTableModel) janelaGerentes.getTableGerentes().getModel();
-		tableModel.setNumRows(0);
+
+		janelaGerentes.getTableModel().setNumRows(0);
 		for(Gerente gerente : gerentes) {
-			tableModel.addRow(new Object[] {
+			janelaGerentes.getTableModel().addRow(new Object[] {
 					gerente.getNome(),
 	                gerente.getCpf(),
 	                gerente.getEmail(),
@@ -30,7 +31,12 @@ public class GerentesHelper {
 	}
 	
 	public void apagarTabela() {
-		DefaultTableModel tableModel = (DefaultTableModel) janelaGerentes.getTableGerentes().getModel();
-		tableModel.setNumRows(0);
+		janelaGerentes.getTableModel().setNumRows(0);
+	}
+	//FIM DOS MÉTODOS DE BUSCA
+	
+	//MÉTODO DE REMOÇÃO
+	public void removerGerente(int linha) {
+		janelaGerentes.getTableModel().removeRow(linha);
 	}
 }

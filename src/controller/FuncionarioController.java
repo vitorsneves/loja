@@ -54,4 +54,12 @@ public class FuncionarioController {
 		}
 	}
 	//FIM MÉTODOS DE BUSCA
+	
+	//MÉTODO DE REMOÇÃO
+	public void removerFuncionario() {
+		int linhaSelecionada = janelaFuncionarios.getTableFuncionarios().getSelectedRow();
+		String cpf = (String) janelaFuncionarios.getTableFuncionarios().getValueAt(linhaSelecionada, 1);
+		//falta chamar o dao e passar o cpf aqui
+		helper.removerFuncionario(linhaSelecionada);
+	}
 }

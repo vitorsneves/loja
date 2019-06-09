@@ -34,6 +34,7 @@ public class GerenteView extends JFrame {
 	private OpcoesAdicionaisView opcoesAdicionais;
 	JComboBox criterioDeBusca;
 	private GerenteController gerenteController = new GerenteController(this);
+	private DefaultTableModel tableModel;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -155,6 +156,7 @@ public class GerenteView extends JFrame {
 		criterioDeBusca.setBounds(29, 11, 190, 22);
 		contentPane.add(criterioDeBusca);
 		
+		tableModel = (DefaultTableModel) tableGerentes.getModel();
 		gerenteController.preencherGerentes();
 		
 	}
@@ -162,9 +164,6 @@ public class GerenteView extends JFrame {
 	public GerenteView getThis() {
 		return this;
 	}
-	
-
-	
 	
 	public void setOpcoesAdicionais(OpcoesAdicionaisView opcoes) {
 		this.opcoesAdicionais = opcoes;
@@ -184,4 +183,9 @@ public class GerenteView extends JFrame {
 	public JTextField getTextBusca() {
 		return textBusca;
 	}
+	
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
+
 }

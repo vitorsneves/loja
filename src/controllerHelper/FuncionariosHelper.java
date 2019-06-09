@@ -17,11 +17,12 @@ public class FuncionariosHelper {
 		this.janelaFuncionarios = janela;
 	}
 	
+	//MÉTODOS DE BUSCA
 	public void preencher(ArrayList<Funcionario> funcionarios) {
-		DefaultTableModel tableModel = (DefaultTableModel) janelaFuncionarios.getTableFuncionarios().getModel();
-		tableModel.setNumRows(0);
+
+		janelaFuncionarios.getTableModel().setNumRows(0);
 		for(Funcionario funcionario : funcionarios) {
-			tableModel.addRow(new Object[] {
+			janelaFuncionarios.getTableModel().addRow(new Object[] {
 					funcionario.getNome(),
 	                funcionario.getCpf(),
 	                funcionario.getEmail(),
@@ -32,7 +33,12 @@ public class FuncionariosHelper {
 	}
 	
 	public void apagarTabela() {
-		DefaultTableModel tableModel = (DefaultTableModel) janelaFuncionarios.getTableFuncionarios().getModel();
-		tableModel.setNumRows(0);
+		janelaFuncionarios.getTableModel().setNumRows(0);
+	}
+	//FIM DOS MÉTODOS DE BUSCA
+	
+	//MÉTODO DE REMOÇÃO
+	public void removerFuncionario(int linha) {
+		janelaFuncionarios.getTableModel().removeRow(linha);
 	}
 }
