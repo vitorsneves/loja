@@ -116,6 +116,7 @@ public class GerenteView extends JFrame {
 		button_1.setHorizontalAlignment(SwingConstants.LEFT);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				gerenteController.removerGerente();
 			}
 		});
 		button_1.setFont(new Font("Arial", Font.PLAIN, 20));
