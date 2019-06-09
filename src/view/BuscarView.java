@@ -165,6 +165,7 @@ public class BuscarView extends JFrame {
 		contentPane.add(fundo);
 		
 		setResizable(false);
+
 		
 		//preenche todas a colunas
 		buscarController.preencherTudo();

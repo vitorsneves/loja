@@ -9,20 +9,17 @@ import model.Produto;
 
 public class VenderHelper {
 	
-	private DefaultTableModel tableModel;
 	private CarrinhoView janelaVender;
 	
 	public VenderHelper(CarrinhoView janelaVender) {
 		this.janelaVender = janelaVender;
-		tableModel = (DefaultTableModel) janelaVender.getTabelaCarrinho().getModel();
-		tableModel.setNumRows(0);
 	}
 	
 	public void adicionarNaVenda(Produto produto) {
 		
 		janelaVender.novaLinha();
 
-		tableModel.addRow(new Object[] {
+		janelaVender.getTableModel().addRow(new Object[] {
 			produto.getCodigo(),
             produto.getNome(),
             produto.getFabricante(),
@@ -49,12 +46,12 @@ public class VenderHelper {
 		
 		if(encontrou) {
 			if(qtd >= quantidade) {
-				tableModel.removeRow(posicao);
+				janelaVender.getTableModel().removeRow(posicao);
 				janelaVender.tirarLinha();
 				
 			}
 			else {
-				tableModel.setValueAt(quantidade - qtd, posicao, 5);
+				janelaVender.getTableModel().setValueAt(quantidade - qtd, posicao, 5);
 			}
 		}
 	}

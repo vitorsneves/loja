@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import controller.VenderController;
 
@@ -29,10 +30,8 @@ public class CarrinhoView extends JFrame {
 	private int linhas;
 	private VenderController controlador = new VenderController(getThis());
 	private JComboBox comboBox;
+	private DefaultTableModel tableModel;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,9 +45,7 @@ public class CarrinhoView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public CarrinhoView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 936, 563);
@@ -63,6 +60,13 @@ public class CarrinhoView extends JFrame {
 		
 		linhas = 0;
 		tabelaCarrinho = new JTable();
+		tabelaCarrinho.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"C\u00F3digo", "Nome", "Fabricante", "Tamanho", "Tipo", "Quantidade", "Pre\u00E7o"
+			}
+		));
 		scrollPane.setViewportView(tabelaCarrinho);
 		
 		textCodigoProduto = new JTextField();
@@ -72,7 +76,8 @@ public class CarrinhoView extends JFrame {
 		
 		JButton btnNewButton = new JButton("Confirmar");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+				controlador.btnConfirmar();
 			}
 		});
 		btnNewButton.setBounds(775, 34, 117, 27);
@@ -125,6 +130,9 @@ public class CarrinhoView extends JFrame {
 		JLabel lblQuantidade = new JLabel("Quantidade ");
 		lblQuantidade.setBounds(583, 11, 117, 14);
 		contentPane.add(lblQuantidade);
+		
+		tableModel = (DefaultTableModel) tabelaCarrinho.getModel();
+		tableModel.setNumRows(0);
 
 	}
 	
@@ -171,6 +179,13 @@ public class CarrinhoView extends JFrame {
 	public JComboBox getComboBox() {
 		return comboBox;
 	}
-	
+
+	public DefaultTableModel getTableModel() {
+		return tableModel;
+	}
+
+	public void setTableModel(DefaultTableModel tableModel) {
+		this.tableModel = tableModel;
+	}
 	
 }

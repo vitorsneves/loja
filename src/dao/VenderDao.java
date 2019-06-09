@@ -30,7 +30,7 @@ public class VenderDao {
 			produto.setTamanho(resultado.getString(4));
 			produto.setTipo(resultado.getString(5));
 			produto.setQuantidade(qtdComprada);
-			produto.setPreco(resultado.getDouble(7));
+			produto.setPreco(qtdComprada * resultado.getDouble(7));
 			return produto;			
 		}
 		return null;
